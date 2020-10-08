@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "564173439864",
+    "firebase_url": "https://anc-antenatalcare.firebaseio.com",
+    "project_id": "anc-antenatalcare",
+    "storage_bucket": "anc-antenatalcare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564173439864:android:f2e8a8c49dcf69ce2d7e8d",
+        "android_client_info": {
+          "package_name": "com.example.anc_antenatalcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564173439864-cuf3pepgcf23mkm5kn1imo4t5ni134al.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwfuT_CvcMbrvFQQ0w5iNbp1AvWVnzmf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564173439864-cuf3pepgcf23mkm5kn1imo4t5ni134al.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

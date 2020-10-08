@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ANC-AntenatalCare</string>
+    <string name="anc_antenatalcare">ANC-AntenatalCare</string>
+    <string name="todo">TODO</string>
+    <string name="tap_anywhere_to_continue">Tap anywhere to continue</string>
+    <string name="need_to_register_n">Need to register? \n रजिस्टर करने की आवश्यकता है?</string>
+    <string name="already_registered_n">Already registered? \n पहले से पंजीकृत?</string>
+    <string name="signup_here_n">SignUp here \n पंजी यहॉ करे</string>
+    <string name="login_here_n">Login here \n यहां लॉगिन करें</string>
+    <string name="hospital_name">Hospital Name: / अस्पताल का नाम:</string>
+    <string name="patient_s_name">Patient\'s Name / मरीज का नाम:</string>
+    <string name="phone_no">Phone No. / फोन नंबर।</string>
+    <string name="patient_s_address">Patient\'s Address: / रोगी का पता:</string>
+    <string name="husband_s_name">Husband\'s Name: / पति का नाम:</string>
+    <string name="patient_s_age">Patient\'s Age: / रोगी की आयु:</string>
+    <string name="opd_no">OPD No.</string>
+    <string name="verify">Verify</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="string_todo" />
+</resources>
