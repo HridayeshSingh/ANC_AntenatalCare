@@ -1,0 +1,2 @@
+rootProject.name='ANC-AntenatalCare'
+include ':app'
