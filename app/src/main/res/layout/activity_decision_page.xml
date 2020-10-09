@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".DecisionPage">
 
+    <include
+        android:id="@+id/decision_app_bar"
+        layout="@layout/app_bar_layout">
+
+    </include>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"

@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".VerifyPhn">
 
+    <include
+        android:id="@+id/verify_app_bar"
+        layout="@layout/app_bar_layout">
+
+    </include>
+
     <EditText
         android:id="@+id/verification_code_entered_by_user"
         android:layout_width="match_parent"
