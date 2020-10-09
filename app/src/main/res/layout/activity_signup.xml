@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".SignupActivity">
 
-    <include
-        android:id="@+id/signup_app_bar"
-        layout="@layout/app_bar_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </include>
-
     <EditText
         android:id="@+id/editText_hosName"
         android:layout_width="0dp"
@@ -106,13 +97,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="80dp"
         android:text="@string/patient_s_name"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_app_bar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
