@@ -17,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 public class SignupActivity extends AppCompatActivity {
 
     EditText editText_patName, editText_age, editText_husName, editText_address, editText_phn, editText_opd, editText_hosName;
@@ -81,7 +83,7 @@ public class SignupActivity extends AppCompatActivity {
                 );
 
                 FirebaseDatabase.getInstance().getReference("users")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid())
                         .setValue(information).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
