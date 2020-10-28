@@ -4,19 +4,61 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.mbms.MbmsErrors;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainPage extends AppCompatActivity {
 
+    TextView patientDetails, pregnancyDetails, investigation, treatmentDetails, complaints, appointmentDates, imageSample;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+
+        InitializeFields();
+
+        patientDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), PatientDetails.class));
+            }
+        });
+        appointmentDates.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), AppointmentDatesActivity.class));
+            }
+        });
+        imageSample.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ImageSamplesActivity.class));
+            }
+        });
+        complaints.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ComplaintsActivity.class));
+            }
+        });
+    }
+
+    private void InitializeFields() {
+        patientDetails = findViewById(R.id.textView_patientDetails);
+        pregnancyDetails = findViewById(R.id.textView_pregnancyDetails);
+        investigation = findViewById(R.id.textView_investigation);
+        treatmentDetails = findViewById(R.id.textView_treatmentDetails);
+        complaints = findViewById(R.id.textView_complaints);
+        appointmentDates = findViewById(R.id.textView_appointmentDates);
+        imageSample = findViewById(R.id.textView_imageSample);
     }
 
     @Override

@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">ANC-AntenatalCare</string>
     <string name="anc_antenatalcare">ANC-AntenatalCare</string>
-    <string name="todo">TODO</string>
     <string name="tap_anywhere_to_continue">Tap anywhere to continue</string>
     <string name="need_to_register_n">Need to register? \n रजिस्टर करने की आवश्यकता है?</string>
     <string name="already_registered_n">Already registered? \n पहले से पंजीकृत?</string>
@@ -27,4 +26,8 @@
     <string name="complaints_n">Complaints \n शिकायतें</string>
     <string name="appointment_dates_with_doctor_n">Appointment dates with Doctor \n डॉक्टर के साथ नियुक्ति की तारीखें</string>
     <string name="image_sample_n">Image Sample \n छवियाँ नमूना</string>
+    <string name="enter_a_date">Enter a Date....</string>
+    <string name="add_date">Add Date</string>
+    <string name="update_dates">Update Dates \nअद्यतन तिथि</string>
+    <string name="todo">TODO</string>
 </resources>

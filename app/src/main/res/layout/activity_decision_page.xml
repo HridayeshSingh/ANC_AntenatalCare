@@ -13,8 +13,10 @@
         android:layout_marginTop="124dp"
         android:gravity="center"
         android:text="@string/need_to_register_n"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,9 +54,10 @@
         android:layout_marginTop="48dp"
         android:gravity="center"
         android:text="@string/already_registered_n"
+        android:textColor="@color/common_google_signin_btn_text_light_pressed"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup" />
 </androidx.constraintlayout.widget.ConstraintLayout>

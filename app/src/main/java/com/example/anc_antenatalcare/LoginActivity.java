@@ -3,6 +3,7 @@ package com.example.anc_antenatalcare;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,30 +13,47 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+
+import java.util.concurrent.TimeUnit;
 
 public class LoginActivity extends AppCompatActivity {
 
     Button login;
     EditText editText_patName, editText_phn, editText_opd;
 
-    String verificationCodeBySystem;
+    private String verificationCodeBySystem;
+    private PhoneAuthProvider.ForceResendingToken mResendCode;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
+    private ProgressDialog loadingBar;
+
+    Button verify_btn;
+    EditText phoneNoEnteredByTheUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        setTitle("Login");
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         editText_patName = findViewById(R.id.editText_patNameL);
         editText_phn = findViewById(R.id.editText_phnL);
         editText_opd = findViewById(R.id.editText_opdL);
+
+        verify_btn = findViewById(R.id.verify_btn);
+        phoneNoEnteredByTheUser = findViewById(R.id.verification_code_entered_by_user);
+        loadingBar = new ProgressDialog(this);
         login = findViewById(R.id.login);
 
         login.setOnClickListener(new View.OnClickListener() {
-
 
 
             @Override
@@ -44,22 +62,104 @@ public class LoginActivity extends AppCompatActivity {
                 final String patName = editText_patName.getText().toString();
                 final String phn = editText_phn.getText().toString();
 
-                final String opd = editText_opd.getText().toString();
+                loadingBar.setTitle("Phone Verification");
+                loadingBar.setMessage("please wait, we are authenticating your phone...");
+                loadingBar.setCanceledOnTouchOutside(false);
+                loadingBar.show();
 
                 if (patName.isEmpty() && phn.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Fields are Empty!", Toast.LENGTH_SHORT).show();
-                }
-                else if (!(patName.isEmpty() && phn.isEmpty())) {
-
-                    Intent intent = new Intent(getApplicationContext(), VerifyPhn.class);
-                    intent.putExtra("phn", phn);
-                    startActivity(intent);
-
                 } else {
-                    Toast.makeText(LoginActivity.this, "Error Occurred!", Toast.LENGTH_SHORT).show();
+
+                    PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                            "+91" + phn,        // Phone number to verify
+                            60,                 // Timeout duration
+                            TimeUnit.SECONDS,   // Unit of timeout
+                            LoginActivity.this,               // Activity (for callback binding)
+                            mCallbacks);
                 }
 
             }
         });
+
+        verify_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String code = phoneNoEnteredByTheUser.getText().toString();
+
+                if (code.isEmpty() || code.length() < 6) {
+                    phoneNoEnteredByTheUser.setError("Wrong OTP...");
+                    phoneNoEnteredByTheUser.requestFocus();
+                    return;
+                }
+
+                loadingBar.setTitle("Verification code");
+                loadingBar.setMessage("please wait, we are verifying code...");
+                loadingBar.setCanceledOnTouchOutside(false);
+                loadingBar.show();
+
+                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCodeBySystem, code);
+                signInUserByCredntials(credential);
+
+            }
+        });
+
+        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                signInUserByCredntials(phoneAuthCredential);
+            }
+
+            @Override
+            public void onVerificationFailed(@NonNull FirebaseException e) {
+
+                loadingBar.dismiss();
+                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                login.setVisibility(View.VISIBLE);
+                phoneNoEnteredByTheUser.setVisibility(View.INVISIBLE);
+                verify_btn.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                super.onCodeSent(s, forceResendingToken);
+
+                loadingBar.dismiss();
+
+                verificationCodeBySystem = s;
+                mResendCode = forceResendingToken;
+                Toast.makeText(LoginActivity.this, "Verification Code Sent!", Toast.LENGTH_SHORT).show();
+
+                login.setVisibility(View.INVISIBLE);
+                phoneNoEnteredByTheUser.setVisibility(View.VISIBLE);
+                verify_btn.setVisibility(View.VISIBLE);
+            }
+        };
+
     }
-}
+
+        private void signInUserByCredntials(PhoneAuthCredential credential) {
+            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+            firebaseAuth.signInWithCredential(credential)
+                    .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+
+                                loadingBar.dismiss();
+
+                                Intent i = new Intent(getApplicationContext(), MainPage.class);
+                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(i);
+                                finish();
+
+                            }
+                            else {
+                                Toast.makeText(LoginActivity.this, "Verification Failed!" ,Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+        }
+    }
