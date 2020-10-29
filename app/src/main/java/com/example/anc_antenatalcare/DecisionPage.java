@@ -1,23 +1,31 @@
 package com.example.anc_antenatalcare;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DecisionPage extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseUser currentUser;
+    private DatabaseReference RootRef;
 
     public void signUp(View view){
         startActivity(new Intent(getApplicationContext(),SignupActivity.class));
     }
-    public void Login(View view){
+    public void login(View view){
         startActivity(new Intent(getApplicationContext(),LoginActivity.class));
     }
 
@@ -30,6 +38,7 @@ public class DecisionPage extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
+        RootRef = FirebaseDatabase.getInstance().getReference();
     }
 
     @Override
@@ -47,4 +56,5 @@ public class DecisionPage extends AppCompatActivity {
         startActivity(mainPageIntent);
         finish();
     }
+
 }

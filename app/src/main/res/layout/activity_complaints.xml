@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,20 +8,18 @@
 
     <EditText
         android:id="@+id/editText_complaint"
-        android:layout_width="0dp"
+        android:layout_width="408dp"
         android:layout_height="324dp"
         android:ems="10"
         android:gravity="top"
         android:hint="Enter Your Complaint... \n अपनी शिकायत दर्ज करें ..."
         android:inputType="textPersonName"
-        android:textColorHint="@android:color/primary_text_light_nodisable"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:textColorHint="@android:color/primary_text_light_nodisable"/>
 
     <Button
         android:id="@+id/button_complaint"
-        android:layout_width="0dp"
+        android:layout_width="304dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
@@ -31,14 +29,12 @@
         android:text="File A Complaint \n  एक शिकायत दर्ज करे"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_complaint" />
+        android:layout_centerHorizontal="true"
+        android:layout_below= "@+id/editText_complaint" />
 
     <Button
         android:id="@+id/button_delete"
-        android:layout_width="0dp"
+        android:layout_width="304dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
@@ -48,8 +44,6 @@
         android:text="Complaint Solved? delete it. \nशिकायत हल? इसे मिटाओ।"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_complaint" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button_complaint" />
+</RelativeLayout>

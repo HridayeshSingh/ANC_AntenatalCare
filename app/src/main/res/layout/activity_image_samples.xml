@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,48 +10,38 @@
         android:id="@+id/imageSample1"
         android:layout_width="204.5dp"
         android:layout_height="365dp"
-        android:layout_weight="1"
         android:contentDescription="@string/string_todo"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/imageSample3"
-        app:layout_constraintEnd_toStartOf="@+id/imageSample2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:scaleType="fitXY" />
 
     <ImageView
         android:id="@+id/imageSample2"
         android:layout_width="204.5dp"
         android:layout_height="365dp"
-        android:layout_weight="1"
+        android:layout_alignStart="@id/imageSample1"
+        android:layout_alignEnd="@id/imageSample1"
+        android:layout_marginStart="204dp"
+        android:layout_marginEnd="-204dp"
         android:contentDescription="@string/string_todo"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/imageSample4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageSample1"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:scaleType="fitXY" />
 
     <ImageView
         android:id="@+id/imageSample3"
         android:layout_width="204.5dp"
         android:layout_height="365dp"
-        android:layout_weight="1"
         android:contentDescription="@string/string_todo"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageSample4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageSample1" />
+        android:layout_below= "@+id/imageSample1" />
 
     <ImageView
         android:id="@+id/imageSample4"
         android:layout_width="204.5dp"
         android:layout_height="365dp"
-        android:layout_weight="1"
         android:contentDescription="@string/string_todo"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageSample3"
-        app:layout_constraintTop_toBottomOf="@+id/imageSample2" />
+        android:layout_alignStart="@id/imageSample3"
+        android:layout_alignEnd="@id/imageSample3"
+        android:layout_marginStart="204dp"
+        android:layout_marginEnd="-204dp"
+        android:layout_below= "@+id/imageSample2" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

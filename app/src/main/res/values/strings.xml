@@ -30,4 +30,8 @@
     <string name="add_date">Add Date</string>
     <string name="update_dates">Update Dates \nअद्यतन तिथि</string>
     <string name="todo">TODO</string>
+    <string name="doctor_login_n">Doctor Login \nडॉक्टर लॉगिन करें</string>
+    <string name="doctor_login_here_n">Doctor Login Here \nडॉक्टर यहाँ लॉगिन करें</string>
+    <string name="doctor_s_email_address">Doctor\'s Email Address / डॉक्टर का ईमेल पता</string>
+    <string name="password">Password / कुंजिका</string>
 </resources>
