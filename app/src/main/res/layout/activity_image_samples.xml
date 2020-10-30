@@ -8,15 +8,15 @@
 
     <ImageView
         android:id="@+id/imageSample1"
-        android:layout_width="204.5dp"
-        android:layout_height="365dp"
+        android:layout_width="201dp"
+        android:layout_height="321dp"
         android:contentDescription="@string/string_todo"
         android:scaleType="fitXY" />
 
     <ImageView
         android:id="@+id/imageSample2"
-        android:layout_width="204.5dp"
-        android:layout_height="365dp"
+        android:layout_width="201dp"
+        android:layout_height="321dp"
         android:layout_alignStart="@id/imageSample1"
         android:layout_alignEnd="@id/imageSample1"
         android:layout_marginStart="204dp"
