@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".PregnancyDetailsActivity"
+            android:parentActivityName=".MainPage"/>
+        <activity
             android:name=".ComplaintsActivity"
             android:parentActivityName=".MainPage" />
         <activity

@@ -34,4 +34,13 @@
     <string name="doctor_login_here_n">Doctor Login Here \nडॉक्टर यहाँ लॉगिन करें</string>
     <string name="doctor_s_email_address">Doctor\'s Email Address / डॉक्टर का ईमेल पता</string>
     <string name="password">Password / कुंजिका</string>
+    <string name="gravida">Gravida:</string>
+    <string name="parity">Parity:</string>
+    <string name="live_issues">Live Issues:</string>
+    <string name="abortion">Abortion:</string>
+    <string name="lmp">LMP:</string>
+    <string name="pog">POG:</string>
+    <string name="edd">EDD:</string>
+    <string name="diagnosis">Diagnosis:</string>
+    <string name="submit">Submit \nजमा करें</string>
 </resources>
