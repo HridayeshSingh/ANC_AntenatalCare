@@ -6,158 +6,179 @@
     android:layout_height="match_parent"
     tools:context=".PatientDetails">
 
-    <TextView
-        android:id="@+id/textView_patName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/input"
-        android:gravity="center"
-        android:padding="10dp"
-        android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView20" />
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView_patAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/input"
-        android:gravity="center"
-        android:padding="10dp"
-        android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView21" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView_husName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/input"
-        android:gravity="center"
-        android:padding="10dp"
-        android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView22" />
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:text="@string/patient_s_name"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView_phn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/input"
-        android:gravity="center"
-        android:padding="10dp"
-        android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView23" />
+            <TextView
+                android:id="@+id/textView_patName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView20"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/input"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textView_opd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/input"
-        android:gravity="center"
-        android:padding="10dp"
-        android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView24" />
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_patName"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/patient_s_age"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/input"
-        android:gravity="center"
-        android:padding="10dp"
-        android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView25" />
+            <TextView
+                android:id="@+id/textView_patAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView21"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/input"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textView_hosName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/input"
-        android:gravity="center"
-        android:padding="10dp"
-        android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView26" />
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_patAge"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/husband_s_name"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:gravity="center"
-        android:text="@string/patient_s_name"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/textView_husName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView22"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/input"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/patient_s_age"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView_patName" />
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_husName"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/phone_no"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/husband_s_name"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView_patAge" />
+            <TextView
+                android:id="@+id/textView_phn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView23"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/input"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/phone_no"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView_husName" />
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_phn"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/opd_no"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/opd_no"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView_phn" />
+            <TextView
+                android:id="@+id/textView_opd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView24"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/input"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/patient_s_address"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView_opd" />
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_opd"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/patient_s_address"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/hospital_name"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textView_address" />
+            <TextView
+                android:id="@+id/textView_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView25"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/input"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_address"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/hospital_name"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_hosName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView26"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/input"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

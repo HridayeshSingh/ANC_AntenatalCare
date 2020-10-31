@@ -1,56 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DecisionPage">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center"
-        android:text="@string/need_to_register_n"
-        android:textColor="@color/common_google_signin_btn_text_light_pressed"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"/>
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:onClick="signUp"
-        android:text="@string/signup_here_n"
-        android:textSize="36sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/textView"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="@string/already_registered_n"
-        android:textColor="@color/common_google_signin_btn_text_light_pressed"
-        android:textSize="30sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/signup"/>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="@string/need_to_register_n"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:onClick="login"
-        android:text="@string/login_here_n"
-        android:textSize="36sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/textView2"/>
+            <Button
+                android:id="@+id/signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:onClick="signUp"
+                android:text="@string/signup_here_n"
+                android:textSize="36sp" />
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/signup"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/already_registered_n"
+                android:textColor="@color/common_google_signin_btn_text_light_pressed"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:onClick="login"
+                android:text="@string/login_here_n"
+                android:textSize="36sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

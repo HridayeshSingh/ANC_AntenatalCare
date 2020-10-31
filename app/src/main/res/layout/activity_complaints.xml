@@ -1,49 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ComplaintsActivity">
 
-    <EditText
-        android:id="@+id/editText_complaint"
-        android:layout_width="408dp"
-        android:layout_height="324dp"
-        android:ems="10"
-        android:gravity="top"
-        android:hint="Enter Your Complaint... \n अपनी शिकायत दर्ज करें ..."
-        android:inputType="textMultiLine"
-        android:layout_centerHorizontal="true"
-        android:textColorHint="@android:color/primary_text_light_nodisable"/>
-
-    <Button
-        android:id="@+id/button_complaint"
-        android:layout_width="304dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/input2"
-        android:padding="10dp"
-        android:text="File A Complaint \n  एक शिकायत दर्ज करे"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below= "@+id/editText_complaint" />
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/button_delete"
-        android:layout_width="304dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/input2"
-        android:padding="10dp"
-        android:text="Complaint Solved? delete it. \nशिकायत हल? इसे मिटाओ।"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/button_complaint" />
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editText_complaint"
+                android:layout_width="match_parent"
+                android:layout_height="324dp"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="Enter Your Complaint... \n अपनी शिकायत दर्ज करें ..."
+                android:inputType="textMultiLine"
+                android:textColorHint="@android:color/primary_text_light_nodisable" />
+
+            <Button
+                android:id="@+id/button_complaint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editText_complaint"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/input2"
+                android:padding="10dp"
+                android:text="File A Complaint \n  एक शिकायत दर्ज करे"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/button_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button_complaint"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/input2"
+                android:padding="10dp"
+                android:text="Complaint Solved? delete it. \nशिकायत हल? इसे मिटाओ।"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
