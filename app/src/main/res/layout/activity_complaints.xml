@@ -13,7 +13,7 @@
         android:ems="10"
         android:gravity="top"
         android:hint="Enter Your Complaint... \n अपनी शिकायत दर्ज करें ..."
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
         android:layout_centerHorizontal="true"
         android:textColorHint="@android:color/primary_text_light_nodisable"/>
 
