@@ -43,4 +43,8 @@
     <string name="edd">EDD:</string>
     <string name="diagnosis">Diagnosis:</string>
     <string name="submit">Submit \nजमा करें</string>
+    <string name="date_format">DD/MM/YYYY</string>
+    <string name="add_details">Add Details</string>
+    <string name="view_previous_details">View Previous Details</string>
+    <string name="search_here">Search Here</string>
 </resources>

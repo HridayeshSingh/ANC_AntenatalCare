@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".DatesPregnancyActivity"></activity>
         <activity
             android:name=".PregnancyDetailsActivity"
-            android:parentActivityName=".MainPage"/>
+            android:parentActivityName=".MainPage" />
         <activity
             android:name=".ComplaintsActivity"
             android:parentActivityName=".MainPage" />
