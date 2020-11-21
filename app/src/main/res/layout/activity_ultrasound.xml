@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PregnancyDetailsActivity">
+    tools:context=".UltrasoundActivity">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -26,27 +26,27 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/newDetailsTextView"
-                android:layout_width="220dp"
+                android:id="@+id/newInvestigationTextView"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/input"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="@string/add_new_details"
+                android:text="@string/new_investigation"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/previousDetailsTextView"
-                android:layout_width="220dp"
+                android:id="@+id/previousInvestigationTextView"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/input"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="@string/view_previous_details"
+                android:text="@string/view_previous_investigation"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -56,7 +56,7 @@
 
                 <TextView
                     android:id="@+id/dateTextView"
-                    android:layout_width="120dp"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/date"
@@ -81,15 +81,15 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/gravidaTextView"
-                    android:layout_width="120dp"
+                    android:id="@+id/gaTextView"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/gravida"
+                    android:text="@string/ga"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/gravidaEditText"
+                    android:id="@+id/gaEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -106,20 +106,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/parityTextView"
-                    android:layout_width="120dp"
+                    android:id="@+id/crlTextView"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/parity"
+                    android:text="@string/crl"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/parityEditText"
+                    android:id="@+id/crlEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:textAlignment="center"
                     android:textSize="18sp" />
 
@@ -131,20 +131,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/liveIssuesTextView"
-                    android:layout_width="120dp"
+                    android:id="@+id/bpdTextView"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/live_issues"
+                    android:text="@string/bpd"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/liveIssuesEditText"
+                    android:id="@+id/bpdEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:textAlignment="center"
                     android:textSize="18sp" />
 
@@ -156,20 +156,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/abortionTextView"
-                    android:layout_width="120dp"
+                    android:id="@+id/hcTextView"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/abortion"
+                    android:text="@string/hc"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/abortionEditText"
+                    android:id="@+id/hcEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:textAlignment="center"
                     android:textSize="18sp" />
 
@@ -181,21 +181,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/lmpTextView"
-                    android:layout_width="120dp"
+                    android:id="@+id/acTextView"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/lmp"
+                    android:text="@string/ac"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/lmpEditText"
+                    android:id="@+id/acEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="@string/date_format"
-                    android:inputType="date"
+                    android:inputType="numberDecimal"
                     android:textAlignment="center"
                     android:textSize="18sp" />
 
@@ -207,21 +206,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/pogTextView"
-                    android:layout_width="120dp"
+                    android:id="@+id/flTextView"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/pog"
+                    android:text="@string/fl"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/pogEditText"
+                    android:id="@+id/flEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="@string/date_format"
-                    android:inputType="date"
+                    android:inputType="numberDecimal"
                     android:textAlignment="center"
                     android:textSize="18sp" />
 
@@ -233,46 +231,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/eddTextView"
-                    android:layout_width="120dp"
+                    android:id="@+id/efwTextView"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/edd"
+                    android:text="@string/efw"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/eddEditText"
+                    android:id="@+id/efwEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="@string/date_format"
-                    android:inputType="date"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/diagnosisTextView"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/diagnosis"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/diagnosisEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="190dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textMultiLine"
+                    android:inputType="numberDecimal"
                     android:textAlignment="center"
                     android:textSize="18sp" />
 

@@ -20,10 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class PregnancyDetailsActivity extends AppCompatActivity {
-
-    TextView newDetailsTextView, previousDetailsTextView, submitTextView, clearAllTextView;
-    EditText dateEditText, gravidaEditText, parityEditText, liveIssuesEditText, abortionEditText, lmpEditText, pogEditText, eddEditText, diagnosisEditText;
+public class UltrasoundActivity extends AppCompatActivity {
+    TextView newInvestigationTextView, previousInvestigationTextView, submitTextView, clearAllTextView;
+    EditText dateEditText, gaEditText, crlEditText, bpdEditText, hcEditText, acEditText, flEditText, efwEditText;
 
     ArrayList<String> datesList = new ArrayList<>();
     ArrayList<DataSnapshot> datesSnapshots = new ArrayList<>();
@@ -34,47 +33,46 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pregnancy_details);
+        setContentView(R.layout.activity_ultrasound);
 
-        setTitle("Pregnancy Details");
+        setTitle("Obstetric Ultrasound");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        newDetailsTextView = findViewById(R.id.newDetailsTextView);
-        previousDetailsTextView = findViewById(R.id.previousDetailsTextView);
+        newInvestigationTextView = findViewById(R.id.newInvestigationTextView);
+        previousInvestigationTextView = findViewById(R.id.previousInvestigationTextView);
         submitTextView = findViewById(R.id.submitTextView);
         clearAllTextView = findViewById(R.id.clearAllTextView);
 
         dateEditText = findViewById(R.id.dateEditText);
-        gravidaEditText = findViewById(R.id.gravidaEditText);
-        parityEditText = findViewById(R.id.parityEditText);
-        liveIssuesEditText = findViewById(R.id.liveIssuesEditText);
-        abortionEditText = findViewById(R.id.abortionEditText);
-        lmpEditText = findViewById(R.id.lmpEditText);
-        pogEditText = findViewById(R.id.pogEditText);
-        eddEditText = findViewById(R.id.eddEditText);
-        diagnosisEditText = findViewById(R.id.diagnosisEditText);
+        gaEditText = findViewById(R.id.gaEditText);
+        crlEditText = findViewById(R.id.crlEditText);
+        bpdEditText = findViewById(R.id.bpdEditText);
+        hcEditText = findViewById(R.id.hcEditText);
+        acEditText = findViewById(R.id.acEditText);
+        flEditText = findViewById(R.id.flEditText);
+        efwEditText = findViewById(R.id.efwEditText);
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         reset();
         retrieve();
 
-        newDetailsTextView.setOnClickListener(new View.OnClickListener() {
+        newInvestigationTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newDetailsTextView.setEnabled(false);
+                newInvestigationTextView.setEnabled(false);
                 enableAll();
                 clearAll();
             }
         });
 
-        previousDetailsTextView.setOnClickListener(new View.OnClickListener() {
+        previousInvestigationTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Reflect db child removal action for "routine investigations" in the lists
-                FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUser).addChildEventListener(new ChildEventListener() {
+                FirebaseDatabase.getInstance().getReference().child("investigations").child(currentUser).child("routine investigations").addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                     }
@@ -95,7 +93,7 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
                 });
 
                 //display investigation dates in AlertDialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(PregnancyDetailsActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(UltrasoundActivity.this);
                 builder.setTitle("Choose A Date");
 
                 if(!isPreviousButtonSelectedBefore)
@@ -112,29 +110,26 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
                         info = datesList.get(i);
                         dateEditText.setText(info);
 
-                        info = datesSnapshots.get(i).child("Gravida").getValue().toString();
-                        gravidaEditText.setText(info);
+                        info = datesSnapshots.get(i).child("GA").getValue().toString();
+                        gaEditText.setText(info);
 
-                        info = datesSnapshots.get(i).child("Parity").getValue().toString();
-                        parityEditText.setText(info);
+                        info = datesSnapshots.get(i).child("CRL").getValue().toString();
+                        crlEditText.setText(info);
 
-                        info = datesSnapshots.get(i).child("Live Issues").getValue().toString();
-                        liveIssuesEditText.setText(info);
+                        info = datesSnapshots.get(i).child("BPD").getValue().toString();
+                        bpdEditText.setText(info);
 
-                        info = datesSnapshots.get(i).child("Abortion").getValue().toString();
-                        abortionEditText.setText(info);
+                        info = datesSnapshots.get(i).child("HC").getValue().toString();
+                        hcEditText.setText(info);
 
-                        info = datesSnapshots.get(i).child("LMP").getValue().toString();
-                        lmpEditText.setText(info);
+                        info = datesSnapshots.get(i).child("AC").getValue().toString();
+                        acEditText.setText(info);
 
-                        info = datesSnapshots.get(i).child("POG").getValue().toString();
-                        pogEditText.setText(info);
+                        info = datesSnapshots.get(i).child("FL").getValue().toString();
+                        flEditText.setText(info);
 
-                        info = datesSnapshots.get(i).child("EDD").getValue().toString();
-                        eddEditText.setText(info);
-
-                        info = datesSnapshots.get(i).child("Diagnosis").getValue().toString();
-                        diagnosisEditText.setText(info);
+                        info = datesSnapshots.get(i).child("EFW").getValue().toString();
+                        efwEditText.setText(info);
                     }
                 });
                 builder.create().show();
@@ -152,29 +147,26 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
                 else
                     date = entriesCount+">"+date;
 
-                info = gravidaEditText.getText().toString();
-                FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUser).child(date).child("Gravida").setValue(info);
+                info = gaEditText.getText().toString();
+                FirebaseDatabase.getInstance().getReference().child("investigations").child(currentUser).child("obstetric ultrasound").child(date).child("GA").setValue(info);
 
-                info = parityEditText.getText().toString();
-                FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUser).child(date).child("Parity").setValue(info);
+                info = crlEditText.getText().toString();
+                FirebaseDatabase.getInstance().getReference().child("investigations").child(currentUser).child("obstetric ultrasound").child(date).child("CRL").setValue(info);
 
-                info = liveIssuesEditText.getText().toString();
-                FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUser).child(date).child("Live Issues").setValue(info);
+                info = bpdEditText.getText().toString();
+                FirebaseDatabase.getInstance().getReference().child("investigations").child(currentUser).child("obstetric ultrasound").child(date).child("BPD").setValue(info);
 
-                info = abortionEditText.getText().toString();
-                FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUser).child(date).child("Abortion").setValue(info);
+                info = hcEditText.getText().toString();
+                FirebaseDatabase.getInstance().getReference().child("investigations").child(currentUser).child("obstetric ultrasound").child(date).child("HC").setValue(info);
 
-                info = lmpEditText.getText().toString();
-                FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUser).child(date).child("LMP").setValue(info);
+                info = acEditText.getText().toString();
+                FirebaseDatabase.getInstance().getReference().child("investigations").child(currentUser).child("obstetric ultrasound").child(date).child("AC").setValue(info);
 
-                info = pogEditText.getText().toString();
-                FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUser).child(date).child("POG").setValue(info);
+                info = flEditText.getText().toString();
+                FirebaseDatabase.getInstance().getReference().child("investigations").child(currentUser).child("obstetric ultrasound").child(date).child("FL").setValue(info);
 
-                info = eddEditText.getText().toString();
-                FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUser).child(date).child("EDD").setValue(info);
-
-                info = diagnosisEditText.getText().toString();
-                FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUser).child(date).child("Diagnosis").setValue(info);
+                info = efwEditText.getText().toString();
+                FirebaseDatabase.getInstance().getReference().child("investigations").child(currentUser).child("obstetric ultrasound").child(date).child("EFW").setValue(info);
 
                 Toast.makeText(getApplicationContext(), "All details have been submitted !! \nसभी जानकारियां जमा हो चुकी हैं।", Toast.LENGTH_LONG).show();
                 finish();
@@ -191,14 +183,13 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
 
     public void disableAll() {
         dateEditText.setEnabled(false);
-        gravidaEditText.setEnabled(false);
-        parityEditText.setEnabled(false);
-        liveIssuesEditText.setEnabled(false);
-        abortionEditText.setEnabled(false);
-        lmpEditText.setEnabled(false);
-        pogEditText.setEnabled(false);
-        eddEditText.setEnabled(false);
-        diagnosisEditText.setEnabled(false);
+        gaEditText.setEnabled(false);
+        crlEditText.setEnabled(false);
+        bpdEditText.setEnabled(false);
+        hcEditText.setEnabled(false);
+        acEditText.setEnabled(false);
+        flEditText.setEnabled(false);
+        efwEditText.setEnabled(false);
 
         submitTextView.setEnabled(false);
         clearAllTextView.setEnabled(false);
@@ -206,14 +197,13 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
 
     public void enableAll() {
         dateEditText.setEnabled(true);
-        gravidaEditText.setEnabled(true);
-        parityEditText.setEnabled(true);
-        liveIssuesEditText.setEnabled(true);
-        abortionEditText.setEnabled(true);
-        lmpEditText.setEnabled(true);
-        pogEditText.setEnabled(true);
-        eddEditText.setEnabled(true);
-        diagnosisEditText.setEnabled(true);
+        gaEditText.setEnabled(true);
+        crlEditText.setEnabled(true);
+        bpdEditText.setEnabled(true);
+        hcEditText.setEnabled(true);
+        acEditText.setEnabled(true);
+        flEditText.setEnabled(true);
+        efwEditText.setEnabled(true);
 
         submitTextView.setEnabled(true);
         clearAllTextView.setEnabled(true);
@@ -221,27 +211,26 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
 
     public void clearAll() {
         dateEditText.setText("");
-        gravidaEditText.setText("");
-        parityEditText.setText("");
-        liveIssuesEditText.setText("");
-        abortionEditText.setText("");
-        lmpEditText.setText("");
-        pogEditText.setText("");
-        eddEditText.setText("");
-        diagnosisEditText.setText("");
+        gaEditText.setText("");
+        crlEditText.setText("");
+        bpdEditText.setText("");
+        hcEditText.setText("");
+        acEditText.setText("");
+        flEditText.setText("");
+        efwEditText.setText("");
     }
 
     public void reset() {
         clearAll();
         disableAll();
-        newDetailsTextView.setEnabled(true);
+        newInvestigationTextView.setEnabled(true);
     }
 
     public void retrieve() {
         datesList.clear();
         datesSnapshots.clear();
 
-        FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUser).addChildEventListener(new ChildEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("investigations").child(currentUser).child("obstetric ultrasound").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 datesList.add(snapshot.getKey().substring(3).replace('-', '/'));

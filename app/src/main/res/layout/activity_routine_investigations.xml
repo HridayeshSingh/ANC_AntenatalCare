@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PregnancyDetailsActivity">
+    tools:context=".RoutineInvestigationsActivity">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -26,27 +26,27 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/newDetailsTextView"
-                android:layout_width="220dp"
+                android:id="@+id/newInvestigationTextView"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/input"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="@string/add_new_details"
+                android:text="@string/new_investigation"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/previousDetailsTextView"
-                android:layout_width="220dp"
+                android:id="@+id/previousInvestigationTextView"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/input"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="@string/view_previous_details"
+                android:text="@string/view_previous_investigation"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -56,7 +56,7 @@
 
                 <TextView
                     android:id="@+id/dateTextView"
-                    android:layout_width="120dp"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/date"
@@ -81,15 +81,40 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/gravidaTextView"
-                    android:layout_width="120dp"
+                    android:id="@+id/bloodGroupTextView"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/gravida"
+                    android:text="@string/blood_group"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/gravidaEditText"
+                    android:id="@+id/bloodGroupEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/hemoglobinTextView"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hemoglobin"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/hemoglobinEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -106,15 +131,65 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/parityTextView"
-                    android:layout_width="120dp"
+                    android:id="@+id/thalassemiaTextView"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/parity"
+                    android:text="@string/thalassemia_screen"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/parityEditText"
+                    android:id="@+id/thalassemiaEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/vdrlTextView"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/vdrl"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/vdrlEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ogttTextView"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/ogtt"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/ogttEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -131,15 +206,90 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/liveIssuesTextView"
-                    android:layout_width="120dp"
+                    android:id="@+id/hivTextView"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/live_issues"
+                    android:text="@string/hiv"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/liveIssuesEditText"
+                    android:id="@+id/hivEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/hbsAgTextView"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hbsAg"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/hbsAgEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/urineRMTextView"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/urine_rm"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/urineRMEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/serumTextView"
+                    android:layout_width="179dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/serum_tsh"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/serumEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -156,123 +306,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/abortionTextView"
-                    android:layout_width="120dp"
+                    android:id="@+id/otherTextView"
+                    android:layout_width="179dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/abortion"
+                    android:text="@string/any_other"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/abortionEditText"
+                    android:id="@+id/otherEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/lmpTextView"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/lmp"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/lmpEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/date_format"
-                    android:inputType="date"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/pogTextView"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/pog"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/pogEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/date_format"
-                    android:inputType="date"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/eddTextView"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/edd"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/eddEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/date_format"
-                    android:inputType="date"
-                    android:textAlignment="center"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/diagnosisTextView"
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/diagnosis"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/diagnosisEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="190dp"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textMultiLine"
+                    android:inputType="text"
                     android:textAlignment="center"
                     android:textSize="18sp" />
 

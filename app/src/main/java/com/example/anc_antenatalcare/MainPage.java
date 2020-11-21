@@ -37,6 +37,12 @@ public class MainPage extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), PregnancyDetailsActivity.class));
             }
         });
+        investigation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), InvestigationsActivity.class));
+            }
+        });
         appointmentDates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

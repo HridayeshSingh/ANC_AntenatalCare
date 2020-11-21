@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DatesPregnancyActivity"></activity>
+        <activity
+            android:name=".UltrasoundActivity"
+            android:parentActivityName=".InvestigationsActivity" />
+        <activity
+            android:name=".RoutineInvestigationsActivity"
+            android:parentActivityName=".InvestigationsActivity" />
+        <activity
+            android:name=".InvestigationsActivity"
+            android:parentActivityName=".MainPage" />
         <activity
             android:name=".PregnancyDetailsActivity"
             android:parentActivityName=".MainPage" />

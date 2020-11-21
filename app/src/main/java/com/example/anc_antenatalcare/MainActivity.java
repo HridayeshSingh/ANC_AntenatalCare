@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         name.animate().alpha(1).setDuration(8000);
 
         final Intent intent = new Intent(getApplicationContext(), DecisionPage.class);
-        CountDownTimer countDownTimer = new CountDownTimer(10000, 10000) {
+        CountDownTimer countDownTimer = new CountDownTimer(1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
 
