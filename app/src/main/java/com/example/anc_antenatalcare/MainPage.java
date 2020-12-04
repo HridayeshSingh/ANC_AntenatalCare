@@ -89,7 +89,7 @@ public class MainPage extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.feedback:
                 Toast.makeText(this, "You are in Feedback now",Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(MainPage.this, Feedback.class));
+                startActivity(new Intent(MainPage.this, FeedbackActivity.class));
                 return true;
             case R.id.help:
                 Toast.makeText(this, "Item selected: help",Toast.LENGTH_SHORT).show();
