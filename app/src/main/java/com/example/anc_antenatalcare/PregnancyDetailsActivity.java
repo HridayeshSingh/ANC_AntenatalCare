@@ -73,7 +73,7 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
         previousDetailsTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Reflect db child removal action for "routine investigations" in the lists
+                //Reflect db child removal action for "pregnancy details" in the lists
                 FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUser).addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -94,7 +94,7 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
                     }
                 });
 
-                //display investigation dates in AlertDialog
+                //display dates in AlertDialog
                 AlertDialog.Builder builder = new AlertDialog.Builder(PregnancyDetailsActivity.this);
                 builder.setTitle("Choose A Date");
 

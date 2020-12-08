@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,9 +22,9 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginPatientActivity extends AppCompatActivity {
 
-    Button login;
+    TextView login;
     EditText editText_patName, editText_phn, editText_opd;
 
     private String verificationCodeBySystem;
@@ -37,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_patient);
 
         setTitle("Login");
 
@@ -68,14 +69,14 @@ public class LoginActivity extends AppCompatActivity {
                 loadingBar.show();
 
                 if (patName.isEmpty() && phn.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Fields are Empty!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginPatientActivity.this, "Fields are Empty!", Toast.LENGTH_SHORT).show();
                 } else {
 
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
                             "+91" + phn,        // Phone number to verify
                             60,                 // Timeout duration
                             TimeUnit.SECONDS,   // Unit of timeout
-                            LoginActivity.this,               // Activity (for callback binding)
+                            LoginPatientActivity.this,               // Activity (for callback binding)
                             mCallbacks);
                 }
 
@@ -115,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onVerificationFailed(@NonNull FirebaseException e) {
 
                 loadingBar.dismiss();
-                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginPatientActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
                 login.setVisibility(View.VISIBLE);
                 phoneNoEnteredByTheUser.setVisibility(View.INVISIBLE);
@@ -130,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 verificationCodeBySystem = s;
                 mResendCode = forceResendingToken;
-                Toast.makeText(LoginActivity.this, "Verification Code Sent!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginPatientActivity.this, "Verification Code Sent!", Toast.LENGTH_SHORT).show();
 
                 login.setVisibility(View.INVISIBLE);
                 phoneNoEnteredByTheUser.setVisibility(View.VISIBLE);
@@ -143,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
         private void signInUserByCredntials(PhoneAuthCredential credential) {
             FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
             firebaseAuth.signInWithCredential(credential)
-                    .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    .addOnCompleteListener(LoginPatientActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
@@ -157,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
                             else {
-                                Toast.makeText(LoginActivity.this, "Verification Failed!" ,Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginPatientActivity.this, "Verification Failed!" ,Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

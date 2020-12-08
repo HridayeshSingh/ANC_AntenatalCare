@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         TextView name = findViewById(R.id.name);
         name.animate().alpha(1).setDuration(8000);
 
-        final Intent intent = new Intent(getApplicationContext(), DecisionPage.class);
+        final Intent intent = new Intent(getApplicationContext(), SignUpInDecisionActivity.class);
         CountDownTimer countDownTimer = new CountDownTimer(1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {

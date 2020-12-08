@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.telephony.mbms.MbmsErrors;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -98,7 +97,7 @@ public class MainPage extends AppCompatActivity {
             case R.id.logout:
                 Toast.makeText(this, "You are Logged out",Toast.LENGTH_SHORT).show();
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainPage.this, DecisionPage.class));
+                startActivity(new Intent(MainPage.this, SignUpInDecisionActivity.class));
                 return true;
             default:
                 return false;

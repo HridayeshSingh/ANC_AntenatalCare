@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DecisionPage">
+    tools:context=".SignUpInDecisionActivity">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -28,48 +28,41 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:gravity="center"
                 android:text="@string/need_to_register_n"
                 android:textColor="@color/common_google_signin_btn_text_light_pressed"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textView"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:onClick="signUp"
                 android:text="@string/signup_here_n"
-                android:textSize="36sp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/signup"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:text="@string/already_registered_n"
                 android:textColor="@color/common_google_signin_btn_text_light_pressed"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textView2"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:onClick="login"
                 android:text="@string/login_here_n"
-                android:textSize="36sp" />
+                android:textSize="25sp" />
         </LinearLayout>
     </ScrollView>
 

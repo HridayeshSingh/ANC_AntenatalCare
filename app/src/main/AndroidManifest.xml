@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".LoginDoctorActivity"
+            android:parentActivityName=".DocPatDecisionActivity"/>
+        <activity
+            android:name=".SignupDoctorActivity"
+            android:parentActivityName=".DocPatDecisionActivity" />
+        <activity
+            android:name=".DocPatDecisionActivity"
+            android:parentActivityName=".SignUpInDecisionActivity" />
         <activity
             android:name=".UltrasoundActivity"
             android:parentActivityName=".InvestigationsActivity" />
@@ -37,13 +45,13 @@
             android:name=".PatientDetails"
             android:parentActivityName=".MainPage" />
         <activity
-            android:name=".LoginActivity"
-            android:parentActivityName=".DecisionPage" />
+            android:name=".LoginPatientActivity"
+            android:parentActivityName=".DocPatDecisionActivity" />
         <activity
-            android:name=".SignupActivity"
-            android:parentActivityName=".DecisionPage" />
+            android:name=".SignupPatientActivity"
+            android:parentActivityName=".DocPatDecisionActivity" />
         <activity android:name=".MainPage" />
-        <activity android:name=".DecisionPage" />
+        <activity android:name=".SignUpInDecisionActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

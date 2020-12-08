@@ -1,14 +1,14 @@
 package com.example.anc_antenatalcare;
 
-public class users {
+public class Users {
 
     public String patName, age, husName, address, phn, opd, hosName;
 
-    public users(){
+//    public users(){
+//
+//    }
 
-    }
-
-    public users(String patName, String age, String husName, String address, String phn, String opd, String hosName) {
+    public Users(String patName, String age, String husName, String address, String phn, String opd, String hosName) {
         this.patName = patName;
         this.age = age;
         this.husName = husName;

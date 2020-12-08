@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupActivity">
+    tools:context=".SignupDoctorActivity">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -25,19 +25,29 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/doctorDetailsTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/patient_s_name"
+                android:layout_marginEnd="16dp"
+                android:text="@string/doctor_details"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/doctorNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/doctor_name"
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText_patNameL"
+                android:id="@+id/doctorNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textView3"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:autofillHints=""
@@ -45,19 +55,39 @@
                 android:inputType="textPersonName" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/emailTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editText_patNameL"
                 android:layout_marginStart="16dp"
-                android:text="@string/patient_s_age"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/email_id"
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText_age"
+                android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textView4"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/smcTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/smc_number"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/smcEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:autofillHints=""
@@ -65,140 +95,137 @@
                 android:inputType="number" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/passwordHintTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editText_age"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="75dp"
-                android:text="@string/husband_s_name"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/editText_husName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textView5"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginEnd="16dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:text="@string/password_hint"
+                android:textColor="@android:color/holo_blue_light"
+                android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/hospitalDetailsTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editText_husName"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="@string/patient_s_address"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/editText_address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textView6"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:inputType="text" />
+                android:layout_marginTop="18dp"
+                android:text="@string/hospital_details"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/hospitalNameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editText_phnL"
-                android:layout_marginStart="16dp"
-                android:text="@string/opd_no"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/editText_opdL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textView8"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:inputType="number" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/editText_address"
-                android:layout_marginStart="16dp"
-                android:text="@string/phone_no"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/editText_phnL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textView7"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:autofillHints=""
-                android:ems="10"
-                android:inputType="number" />
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/editText_opdL"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/hospital_name"
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editText_hosName"
+                android:id="@+id/hospitalNameEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textView9"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:autofillHints=""
                 android:ems="10"
                 android:inputType="text" />
 
-            <Button
-                android:id="@+id/signUp"
+            <TextView
+                android:id="@+id/areaTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editText_hosName"
-                android:layout_centerHorizontal="true"
-                android:text="@string/signup_here_n" />
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/area_hint"
+                android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/verification_code_entered_by_user"
+                android:id="@+id/areaEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/editText_hosName"
-                android:layout_centerHorizontal="true"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:autofillHints=""
-                android:hint="@string/enter_otp"
-                android:inputType="number"
-                android:visibility="invisible" />
+                android:ems="10"
+                android:inputType="text" />
 
-            <Button
-                android:id="@+id/verify_btn"
+            <TextView
+                android:id="@+id/cityTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/signUp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:background="#fece2f"
-                android:text="@string/verify"
-                android:visibility="invisible" />
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/city_hint"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/cityEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/stateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/state_hint"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/stateEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/postalCodeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/postal_hint"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/postalCodeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/signUpTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="@string/signup_here_n"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"/>
+
         </LinearLayout>
     </ScrollView>
 

@@ -1,15 +1,20 @@
 package com.example.anc_antenatalcare;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,24 +24,28 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupPatientActivity extends AppCompatActivity {
 
     EditText editText_patName, editText_age, editText_husName, editText_address, editText_phn, editText_opd, editText_hosName;
-    Button signUp;
+    TextView chooseHospitalTextView, signUp;
 
     DatabaseReference databaseReference;
-
-    FirebaseAuth firebaseAuth;
 
     private String verificationCodeBySystem;
     private PhoneAuthProvider.ForceResendingToken mResendCode;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private ProgressDialog loadingBar;
+    ArrayList<String> hospitals = new ArrayList<>();
+    ArrayList<String> hosDisplayNames = new ArrayList<>();
 
     Button verify_btn;
     EditText phoneNoEnteredByTheUser;
@@ -44,7 +53,7 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_signup_patient);
 
         setTitle("Sign Up");
 
@@ -53,10 +62,57 @@ public class SignupActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
+        retrieve();
         InitializeFields();
 
         //String phn = editText_phn.getText().toString();
         //sendVerificationCodeToUser(phn);
+
+        chooseHospitalTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Reflect db child removal action for "hospitals" in the lists
+                FirebaseDatabase.getInstance().getReference().child("hospitals").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                    }
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                    }
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                        String name = snapshot.child("hospitalName").getValue().toString();
+                        String area = snapshot.child("area").getValue().toString();
+                        String city = snapshot.child("city").getValue().toString();
+                        String state = snapshot.child("state").getValue().toString();
+                        String postalCode = snapshot.child("postalCode").getValue().toString();
+                        hospitals.remove(name + "\n" + area + ", " + city + ", " + state + "-" + postalCode + "\n");
+                        hosDisplayNames.remove(snapshot.getKey());
+                    }
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+
+                //display dates in AlertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(SignupPatientActivity.this);
+                builder.setTitle("Choose A Hospital");
+
+                Log.i("hospital size", "" + hospitals.size());
+                String[] hospitalArray = new String[hospitals.size()];
+                hospitalArray = hospitals.toArray(hospitalArray);
+                builder.setItems(hospitalArray, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        editText_hosName.setText(hosDisplayNames.get(i));
+                    }
+                });
+                builder.create().show();
+            }
+        });
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,25 +132,25 @@ public class SignupActivity extends AppCompatActivity {
                 loadingBar.show();
 
                 if (TextUtils.isEmpty(patName)) {
-                    Toast.makeText(SignupActivity.this, "Please Enter Patient's Name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupPatientActivity.this, "Please Enter Patient's Name", Toast.LENGTH_SHORT).show();
                 }
                 if (TextUtils.isEmpty(age)) {
-                    Toast.makeText(SignupActivity.this, "Please Enter Patient's Age", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupPatientActivity.this, "Please Enter Patient's Age", Toast.LENGTH_SHORT).show();
                 }
                 if (TextUtils.isEmpty(husName)) {
-                    Toast.makeText(SignupActivity.this, "Please Enter Husband's Name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupPatientActivity.this, "Please Enter Husband's Name", Toast.LENGTH_SHORT).show();
                 }
                 if (TextUtils.isEmpty(address)) {
-                    Toast.makeText(SignupActivity.this, "Please Enter Patient's Address", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupPatientActivity.this, "Please Enter Patient's Address", Toast.LENGTH_SHORT).show();
                 }
                 if (TextUtils.isEmpty(phn)) {
-                    Toast.makeText(SignupActivity.this, "Please Enter Patient's Phone No.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupPatientActivity.this, "Please Enter Patient's Phone No.", Toast.LENGTH_SHORT).show();
                 }
                 if (TextUtils.isEmpty(opd)) {
-                    Toast.makeText(SignupActivity.this, "Please Enter OPD No.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupPatientActivity.this, "Please Enter OPD No.", Toast.LENGTH_SHORT).show();
                 }
                 if (TextUtils.isEmpty(hosName)) {
-                    Toast.makeText(SignupActivity.this, "Please Enter Hospital Name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignupPatientActivity.this, "Please Enter Hospital Name", Toast.LENGTH_SHORT).show();
                 }
                 else {
 
@@ -102,7 +158,7 @@ public class SignupActivity extends AppCompatActivity {
                             "+91" + phn,        // Phone number to verify
                             60,                 // Timeout duration
                             TimeUnit.SECONDS,   // Unit of timeout
-                            SignupActivity.this,               // Activity (for callback binding)
+                            SignupPatientActivity.this,               // Activity (for callback binding)
                             mCallbacks);
                 }
 
@@ -144,7 +200,7 @@ public class SignupActivity extends AppCompatActivity {
             {
 
                 loadingBar.dismiss();
-                Toast.makeText(SignupActivity.this, e.getMessage() ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupPatientActivity.this, e.getMessage() ,Toast.LENGTH_SHORT).show();
 
                 signUp.setVisibility(View.VISIBLE);
                 phoneNoEnteredByTheUser.setVisibility(View.INVISIBLE);
@@ -159,7 +215,7 @@ public class SignupActivity extends AppCompatActivity {
 
                 verificationCodeBySystem = s;
                 mResendCode = forceResendingToken;
-                Toast.makeText(SignupActivity.this, "Verification Code Sent!" ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupPatientActivity.this, "Verification Code Sent!" ,Toast.LENGTH_SHORT).show();
 
                 signUp.setVisibility(View.INVISIBLE);
                 phoneNoEnteredByTheUser.setVisibility(View.VISIBLE);
@@ -226,6 +282,7 @@ public class SignupActivity extends AppCompatActivity {
         verify_btn = findViewById(R.id.verify_btn);
         phoneNoEnteredByTheUser = findViewById(R.id.verification_code_entered_by_user);
         loadingBar = new ProgressDialog(this);
+        chooseHospitalTextView = findViewById(R.id.chooseHospitalTextView);
         signUp = findViewById(R.id.signUp);
     }
 
@@ -241,7 +298,7 @@ public class SignupActivity extends AppCompatActivity {
 
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.signInWithCredential(credential)
-                .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(SignupPatientActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
@@ -249,7 +306,7 @@ public class SignupActivity extends AppCompatActivity {
                             loadingBar.dismiss();
 
                             // Create Database
-                            users information = new users(
+                            Users information = new Users(
                                     patName, age, husName, address, phn, opd, hosName
                             );
                             databaseReference
@@ -260,14 +317,14 @@ public class SignupActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
                                                 SendUserToMainPageActivity();
-                                                Toast.makeText(SignupActivity.this, "Patient's Profile Updated Successfully...", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(SignupPatientActivity.this, "Patient's Profile Updated Successfully...", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
 
                         }
                         else {
-                            Toast.makeText(SignupActivity.this, "Verification Failed!" ,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignupPatientActivity.this, "Verification Failed!" ,Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -278,5 +335,34 @@ public class SignupActivity extends AppCompatActivity {
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
         finish();
+    }
+
+    public void retrieve() {
+        hospitals.clear();
+
+        FirebaseDatabase.getInstance().getReference().child("hospitals").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                String name = snapshot.child("hospitalName").getValue().toString();
+                String area = snapshot.child("area").getValue().toString();
+                String city = snapshot.child("city").getValue().toString();
+                String state = snapshot.child("state").getValue().toString();
+                String postalCode = snapshot.child("postalCode").getValue().toString();
+                hospitals.add(name + "\n" + area + ", " + city + ", " + state + "-" + postalCode + "\n");
+                hosDisplayNames.add(snapshot.getKey());
+            }
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+            }
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
     }
 }
