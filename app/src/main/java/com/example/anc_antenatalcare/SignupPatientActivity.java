@@ -224,53 +224,6 @@ public class SignupPatientActivity extends AppCompatActivity {
         };
     }
 
-    /*private void sendVerificationCodeToUser(String phn) {
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                "+91" + phn,        // Phone number to verify
-                60,                 // Timeout duration
-                TimeUnit.SECONDS,   // Unit of timeout
-                TaskExecutors.MAIN_THREAD,               // Activity (for callback binding)
-                mCallbacks);        // OnVerificationStateChangedCallbacks
-
-    }
-
-     */
-
-    /*private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
-        @Override
-        public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-            super.onCodeSent(s, forceResendingToken);
-
-            verificationCodeBySystem = s;
-        }
-
-        @Override
-        public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-            String code = phoneAuthCredential.getSmsCode();
-            if (code!= null) {
-                progressBar.setVisibility(View.VISIBLE);
-                verifyCode(code);
-            }
-        }
-
-        @Override
-        public void onVerificationFailed(@NonNull FirebaseException e) {
-            Toast.makeText(SignupActivity.this, e.getMessage() ,Toast.LENGTH_SHORT).show();
-        }
-    };
-
-     */
-
-    /*private void verifyCode(String codeByUser){
-
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCodeBySystem, codeByUser);
-        signInUserByCredntials(credential);
-
-    }
-
-     */
-
     public void InitializeFields(){
         editText_patName = findViewById(R.id.editText_patNameL);
         editText_age = findViewById(R.id.editText_age);

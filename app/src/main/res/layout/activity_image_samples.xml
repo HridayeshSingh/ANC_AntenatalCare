@@ -1,66 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ImageSamplesActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout2"
+        android:layout_marginBottom="365dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageSample1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageView
-                android:id="@+id/imageSample1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/string_todo"
-                android:scaleType="fitXY" />
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/logo" />
 
-            <ImageView
-                android:id="@+id/imageSample2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@id/imageSample1"
-                android:layout_alignEnd="@id/imageSample1"
-                android:layout_marginStart="204dp"
-                android:layout_marginEnd="-204dp"
-                android:contentDescription="@string/string_todo"
-                android:scaleType="fitXY" />
+        <ImageView
+            android:id="@+id/imageSample2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/logo" />
+    </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageSample3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/string_todo"
-                android:scaleType="fitXY"
-                android:layout_below= "@+id/imageSample1" />
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="365dp">
 
-            <ImageView
-                android:id="@+id/imageSample4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/string_todo"
-                android:scaleType="fitXY"
-                android:layout_alignStart="@id/imageSample3"
-                android:layout_alignEnd="@id/imageSample3"
-                android:layout_marginStart="204dp"
-                android:layout_marginEnd="-204dp"
-                android:layout_below= "@+id/imageSample2" />
-        </LinearLayout>
-    </ScrollView>
+        <ImageView
+            android:id="@+id/imageSample3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/logo" />
 
+        <ImageView
+            android:id="@+id/imageSample4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/logo" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

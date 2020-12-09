@@ -28,6 +28,9 @@ public class PatientDetails extends AppCompatActivity {
 
         setTitle("Patient's Details");
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         firebaseAuth = FirebaseAuth.getInstance();
         CurrentUserID = firebaseAuth.getCurrentUser().getUid();
         RootRef = FirebaseDatabase.getInstance().getReference();
