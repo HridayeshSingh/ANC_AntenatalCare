@@ -38,10 +38,14 @@ public class LoginDoctorActivity extends AppCompatActivity {
         loginTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = emailEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
+                final String email = emailEditText.getText().toString();
+                final String password = passwordEditText.getText().toString();
 
-                auth.signInWithEmailAndPassword(email, password)
+                if (email.isEmpty()){
+                    emailEditText.requestFocus();
+                }
+                else{
+                    auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(LoginDoctorActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -53,6 +57,7 @@ public class LoginDoctorActivity extends AppCompatActivity {
                                 }
                             }
                         });
+                }
             }
         });
     }

@@ -60,6 +60,12 @@ public class MainPage extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ComplaintsActivity.class));
             }
         });
+        treatmentDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), TreatmentActivity.class));
+            }
+        });
     }
 
     private void InitializeFields() {

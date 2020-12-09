@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 public class LoginPatientActivity extends AppCompatActivity {
 
     TextView login;
-    EditText editText_patName, editText_phn, editText_opd;
+    EditText editText_patName, editText_phn, editText_opd, verification_Code_entered_by_user;
 
     private String verificationCodeBySystem;
     private PhoneAuthProvider.ForceResendingToken mResendCode;
@@ -33,7 +33,6 @@ public class LoginPatientActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
 
     Button verify_btn;
-    EditText phoneNoEnteredByTheUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +44,12 @@ public class LoginPatientActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        verification_Code_entered_by_user = findViewById(R.id.verification_code_entered_by_user);
         editText_patName = findViewById(R.id.editText_patNameL);
         editText_phn = findViewById(R.id.editText_phnL);
         editText_opd = findViewById(R.id.editText_opdL);
 
         verify_btn = findViewById(R.id.verify_btn);
-        phoneNoEnteredByTheUser = findViewById(R.id.verification_code_entered_by_user);
         loadingBar = new ProgressDialog(this);
         login = findViewById(R.id.login);
 
@@ -70,6 +69,8 @@ public class LoginPatientActivity extends AppCompatActivity {
 
                 if (patName.isEmpty() && phn.isEmpty()) {
                     Toast.makeText(LoginPatientActivity.this, "Fields are Empty!", Toast.LENGTH_SHORT).show();
+                    editText_patName.requestFocus();
+                    editText_phn.requestFocus();
                 } else {
 
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -87,21 +88,22 @@ public class LoginPatientActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String code = phoneNoEnteredByTheUser.getText().toString();
+                String code = verification_Code_entered_by_user.getText().toString();
 
                 if (code.isEmpty() || code.length() < 6) {
-                    phoneNoEnteredByTheUser.setError("Wrong OTP...");
-                    phoneNoEnteredByTheUser.requestFocus();
-                    return;
+                    verification_Code_entered_by_user.setError("Wrong OTP...");
+                    verification_Code_entered_by_user.requestFocus();
                 }
 
-                loadingBar.setTitle("Verification code");
-                loadingBar.setMessage("please wait, we are verifying code...");
-                loadingBar.setCanceledOnTouchOutside(false);
-                loadingBar.show();
+                else {
+                    loadingBar.setTitle("Verification code");
+                    loadingBar.setMessage("please wait, we are verifying code...");
+                    loadingBar.setCanceledOnTouchOutside(false);
+                    loadingBar.show();
 
-                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCodeBySystem, code);
-                signInUserByCredntials(credential);
+                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationCodeBySystem, code);
+                    signInUserByCredntials(credential);
+                }
 
             }
         });
@@ -118,8 +120,8 @@ public class LoginPatientActivity extends AppCompatActivity {
                 loadingBar.dismiss();
                 Toast.makeText(LoginPatientActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
+                verification_Code_entered_by_user.setVisibility(View.INVISIBLE);
                 login.setVisibility(View.VISIBLE);
-                phoneNoEnteredByTheUser.setVisibility(View.INVISIBLE);
                 verify_btn.setVisibility(View.INVISIBLE);
             }
 
@@ -134,7 +136,7 @@ public class LoginPatientActivity extends AppCompatActivity {
                 Toast.makeText(LoginPatientActivity.this, "Verification Code Sent!", Toast.LENGTH_SHORT).show();
 
                 login.setVisibility(View.INVISIBLE);
-                phoneNoEnteredByTheUser.setVisibility(View.VISIBLE);
+                verification_Code_entered_by_user.setVisibility(View.VISIBLE);
                 verify_btn.setVisibility(View.VISIBLE);
             }
         };

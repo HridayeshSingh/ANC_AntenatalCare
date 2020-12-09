@@ -9,10 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FeedbackActivity"
+        <activity
+            android:name=".TreatmentActivity"
             android:parentActivityName=".MainPage"/>
-        <activity android:name=".LoginDoctorActivity"
-            android:parentActivityName=".DocPatDecisionActivity"/>
+        <activity
+            android:name=".FeedbackActivity"
+            android:parentActivityName=".MainPage" />
+        <activity
+            android:name=".LoginDoctorActivity"
+            android:parentActivityName=".DocPatDecisionActivity" />
         <activity
             android:name=".SignupDoctorActivity"
             android:parentActivityName=".DocPatDecisionActivity" />
