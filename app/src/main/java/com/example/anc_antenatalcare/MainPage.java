@@ -1,5 +1,6 @@
 package com.example.anc_antenatalcare;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,10 +13,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainPage extends AppCompatActivity {
 
-    TextView patientDetails, pregnancyDetails, investigation, treatmentDetails, complaints, appointmentDates, imageSample;
+    private TextView patientDetails, pregnancyDetails, investigation, treatmentDetails, complaints, appointmentDates, imageSample;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

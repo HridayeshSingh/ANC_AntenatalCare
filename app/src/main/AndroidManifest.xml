@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".DoctorEmailVerifyActivity"></activity>
         <activity
             android:name=".TreatmentActivity"
-            android:parentActivityName=".MainPage"/>
+            android:parentActivityName=".MainPage" />
         <activity
             android:name=".FeedbackActivity"
             android:parentActivityName=".MainPage" />

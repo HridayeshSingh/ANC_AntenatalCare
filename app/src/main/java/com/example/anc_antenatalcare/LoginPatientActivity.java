@@ -1,6 +1,7 @@
 package com.example.anc_antenatalcare;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -17,9 +18,17 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class LoginPatientActivity extends AppCompatActivity {
@@ -27,10 +36,16 @@ public class LoginPatientActivity extends AppCompatActivity {
     TextView login;
     EditText editText_patName, editText_phn, editText_opd, verification_Code_entered_by_user;
 
+    private ArrayList<String> opdNumber = new ArrayList<>();
+
     private String verificationCodeBySystem;
     private PhoneAuthProvider.ForceResendingToken mResendCode;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private ProgressDialog loadingBar;
+
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser currentUser;
+    private DatabaseReference RootRef;
 
     Button verify_btn;
 
@@ -44,6 +59,10 @@ public class LoginPatientActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        currentUser = firebaseAuth.getCurrentUser();
+        RootRef = FirebaseDatabase.getInstance().getReference();
+
         verification_Code_entered_by_user = findViewById(R.id.verification_code_entered_by_user);
         editText_patName = findViewById(R.id.editText_patNameL);
         editText_phn = findViewById(R.id.editText_phnL);
@@ -53,25 +72,21 @@ public class LoginPatientActivity extends AppCompatActivity {
         loadingBar = new ProgressDialog(this);
         login = findViewById(R.id.login);
 
+        getOPDs();
+
         login.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
             public void onClick(View v) {
 
                 final String patName = editText_patName.getText().toString();
                 final String phn = editText_phn.getText().toString();
+                final String opd = editText_opd.getText().toString();
 
-                loadingBar.setTitle("Phone Verification");
-                loadingBar.setMessage("please wait, we are authenticating your phone...");
-                loadingBar.setCanceledOnTouchOutside(false);
-                loadingBar.show();
-
-                if (patName.isEmpty() && phn.isEmpty()) {
-                    Toast.makeText(LoginPatientActivity.this, "Fields are Empty!", Toast.LENGTH_SHORT).show();
-                    editText_patName.requestFocus();
-                    editText_phn.requestFocus();
-                } else {
+                if (opdNumber.contains(opd)) {
+                    loadingBar.setTitle("Phone Verification");
+                    loadingBar.setMessage("please wait, we are authenticating your phone...");
+                    loadingBar.setCanceledOnTouchOutside(false);
+                    loadingBar.show();
 
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
                             "+91" + phn,        // Phone number to verify
@@ -79,6 +94,9 @@ public class LoginPatientActivity extends AppCompatActivity {
                             TimeUnit.SECONDS,   // Unit of timeout
                             LoginPatientActivity.this,               // Activity (for callback binding)
                             mCallbacks);
+                }
+                else {
+                    SendUserToSignupActivity();
                 }
 
             }
@@ -143,7 +161,7 @@ public class LoginPatientActivity extends AppCompatActivity {
 
     }
 
-        private void signInUserByCredntials(PhoneAuthCredential credential) {
+    private void signInUserByCredntials(PhoneAuthCredential credential) {
             FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
             firebaseAuth.signInWithCredential(credential)
                     .addOnCompleteListener(LoginPatientActivity.this, new OnCompleteListener<AuthResult>() {
@@ -153,10 +171,7 @@ public class LoginPatientActivity extends AppCompatActivity {
 
                                 loadingBar.dismiss();
 
-                                Intent i = new Intent(getApplicationContext(), MainPage.class);
-                                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(i);
-                                finish();
+                                SendUserToMainPageActivity();
 
                             }
                             else {
@@ -164,5 +179,51 @@ public class LoginPatientActivity extends AppCompatActivity {
                             }
                         }
                     });
-        }
     }
+
+    private void SendUserToMainPageActivity() {
+        Intent i = new Intent(getApplicationContext(), MainPage.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+        finish();
+    }
+
+    private void SendUserToSignupActivity() {
+        Intent i = new Intent(getApplicationContext(), SignupPatientActivity.class);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+        finish();
+    }
+
+    public void getOPDs(){
+
+        RootRef.child("users").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                opdNumber.add((String) snapshot.child("opd").getValue());
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+}
