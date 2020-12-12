@@ -155,7 +155,7 @@ public class SignupPatientActivity extends AppCompatActivity {
                 else {
 
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                            "+91" + phn,        // Phone number to verify
+                            phn,        // Phone number to verify
                             60,                 // Timeout duration
                             TimeUnit.SECONDS,   // Unit of timeout
                             SignupPatientActivity.this,               // Activity (for callback binding)

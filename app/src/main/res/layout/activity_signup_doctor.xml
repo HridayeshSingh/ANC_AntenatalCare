@@ -215,13 +215,13 @@
                 android:ems="10"
                 android:inputType="number" />
 
-            <TextView
+            <Button
                 android:id="@+id/signUpTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/input"
+                android:background="@drawable/input2"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="10dp"
                 android:text="@string/signup_here_n"
                 android:textSize="18sp"
                 android:layout_marginTop="20dp"/>

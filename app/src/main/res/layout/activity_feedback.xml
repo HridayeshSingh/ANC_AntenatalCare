@@ -45,7 +45,7 @@
 
                         <TableRow
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content">
 
                             <TextView
                                 android:id="@+id/textView1"
@@ -55,57 +55,11 @@
                                 android:gravity="center"
                                 android:text="SATISFACTION SCALE \n(PATIENT) "
                                 android:textColor="@color/common_google_signin_btn_text_dark_focused" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_marginStart="-300dp"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/textView2"
-                                    android:layout_width="200dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="STRONGLY \nDISAGREE "
-                                    android:textColor="@color/common_google_signin_btn_text_dark_focused" />
-
-                                <TextView
-                                    android:id="@+id/textView3"
-                                    android:layout_width="200dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="DISAGREE "
-                                    android:textColor="@color/common_google_signin_btn_text_dark_focused" />
-
-                                <TextView
-                                    android:id="@+id/textView4"
-                                    android:layout_width="200dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="NEITHER\nAGREE\nNOR DISAGREE "
-                                    android:textColor="@color/common_google_signin_btn_text_dark_focused" />
-                                <TextView
-                                    android:id="@+id/textView5"
-                                    android:layout_width="200dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="AGREE"
-                                    android:textColor="@color/common_google_signin_btn_text_dark_focused" />
-
-                                <TextView
-                                    android:id="@+id/textView6"
-                                    android:layout_width="200dp"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:text="STRONGLY \nAGREE "
-                                    android:textColor="@color/common_google_signin_btn_text_dark_focused" />
-                            </LinearLayout>
                         </TableRow>
 
                         <TableRow
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content">
 
                             <TextView
                                 android:id="@+id/textView7"
@@ -113,35 +67,37 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="I am satisfied with the antenatal care I have received \nमुझे जो प्रसव पूर्व देखभाल मिली है, उससे मैं संतुष्ट हूं"
                                 android:textSize="14sp" />
-
+                        </TableRow>
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
                             <RadioGroup
                                 android:id="@+id/radioGroup1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:tag="0" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="1" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton3"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
+                                    android:layout_height="64dp"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:gravity="center"
                                     android:tag="2" />
 
@@ -149,23 +105,23 @@
                                     android:id="@+id/radioButton4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="AGREE "
                                     android:tag="3" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton5"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="4" />
                             </RadioGroup>
                         </TableRow>
 
                         <TableRow
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="wrap_content">
 
                             <TextView
                                 android:id="@+id/textView8"
@@ -173,19 +129,22 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="I feel connected to my healthcare provider \nमैं अपने स्वास्थ्य सेवा प्रदाता से जुड़ा हुआ महसूस करता हूं"
                                 android:textSize="14sp" />
+                        </TableRow>
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
                             <RadioGroup
                                 android:id="@+id/radioGroup2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:gravity="center"
                                     android:tag="5" />
 
@@ -193,15 +152,15 @@
                                     android:id="@+id/radioButton7"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="6" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton8"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
+                                    android:layout_height="64dp"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:gravity="center"
                                     android:tag="7" />
 
@@ -209,7 +168,7 @@
                                     android:id="@+id/radioButton9"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
+                                    android:text="AGREE "
                                     android:gravity="center"
                                     android:tag="8" />
 
@@ -217,15 +176,15 @@
                                     android:id="@+id/radioButton10"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="9" />
                             </RadioGroup>
                         </TableRow>
 
                         <TableRow
                             android:layout_width="match_parent"
-                            android:layout_height="203dp">
+                            android:layout_height="wrap_content">
 
                             <TextView
                                 android:id="@+id/textView9"
@@ -233,35 +192,39 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="I feel knowledgeable about my pregnancy \nमैं अपनी गर्भावस्था के बारे में जानकार महसूस करता हूं"
                                 android:textSize="14sp" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
                             <RadioGroup
                                 android:id="@+id/radioGroup3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton11"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:tag="10" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton12"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="11" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton13"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
+                                    android:layout_height="64dp"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:gravity="center"
                                     android:tag="12" />
 
@@ -269,16 +232,16 @@
                                     android:id="@+id/radioButton14"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="AGREE "
                                     android:tag="13" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton15"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="14" />
                             </RadioGroup>
                         </TableRow>
@@ -293,35 +256,39 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="I am getting the care that I need \nमुझे वह देखभाल मिल रही है जिसकी मुझे आवश्यकता है"
                                 android:textSize="14sp" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
                             <RadioGroup
                                 android:id="@+id/radioGroup4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton16"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:tag="15" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton17"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="16" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton18"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
+                                    android:layout_height="64dp"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:gravity="center"
                                     android:tag="17" />
 
@@ -329,16 +296,16 @@
                                     android:id="@+id/radioButton19"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="AGREE "
                                     android:tag="18" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton20"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="19" />
                             </RadioGroup>
                         </TableRow>
@@ -353,35 +320,38 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="I feel my healthcare provider knows \nhow I am doing in between my appointments \nमुझे लगता है कि मेरे स्वास्थ्य सेवा प्रदाता जानता है \nमैं अपनी नियुक्तियों के बीच में कैसे कर रहा हूं"
                                 android:textSize="14sp" />
+                        </TableRow>
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
                             <RadioGroup
                                 android:id="@+id/radioGroup5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton21"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:tag="20" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton22"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="21" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton23"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
+                                    android:layout_height="64dp"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:gravity="center"
                                     android:tag="22" />
 
@@ -389,16 +359,16 @@
                                     android:id="@+id/radioButton24"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="AGREE "
                                     android:tag="23" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton25"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="24" />
                             </RadioGroup>
                         </TableRow>
@@ -413,35 +383,38 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="I feel knowledgeable about the safe exercises \nI need to do during my pregnancy \nमैं सुरक्षित अभ्यास के बारे में जानकार लग रहा है \nमैं अपनी गर्भावस्था के दौरान करने की जरूरत है"
                                 android:textSize="14sp" />
+                        </TableRow>
 
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
                             <RadioGroup
                                 android:id="@+id/radioGroup6"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton26"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:tag="25" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton27"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="26" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton28"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
+                                    android:layout_height="64dp"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:gravity="center"
                                     android:tag="27" />
 
@@ -449,16 +422,16 @@
                                     android:id="@+id/radioButton29"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="AGREE "
                                     android:tag="28" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton30"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="29" />
                             </RadioGroup>
                         </TableRow>
@@ -473,35 +446,39 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="I feel knowledgeable about my health and \ndietary habits during my pregnancy \nमैं अपनी गर्भावस्था के दौरान अपने स्वास्थ्य और \nआहार की आदतों के बारे में जानकार महसूस करता हूं"
                                 android:textSize="14sp" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
                             <RadioGroup
                                 android:id="@+id/radioGroup7"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton31"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:tag="30" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton32"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="31" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton33"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
+                                    android:layout_height="64dp"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:gravity="center"
                                     android:tag="32" />
 
@@ -509,16 +486,16 @@
                                     android:id="@+id/radioButton34"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="AGREE "
                                     android:tag="33" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton35"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="34" />
                             </RadioGroup>
                         </TableRow>
@@ -533,42 +510,46 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="I feel that I know what to expect \nduring my each trimesters \nमुझे लगता है कि मुझे पता है कि मेरे प्रत्येक तिमाही के दौरान \nकी उम्मीद है"
                                 android:textSize="14sp" />
+                        </TableRow>
 
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
                             <RadioGroup
                                 android:id="@+id/radioGroup8"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton36"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"                                    android:gravity="center"
+                                    android:gravity="center"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:tag="35" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton37"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="36" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton38"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:tag="37" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton39"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
+                                    android:layout_height="64dp"
+                                    android:text="AGREE "
                                     android:gravity="center"
                                     android:tag="38" />
 
@@ -576,8 +557,8 @@
                                     android:id="@+id/radioButton40"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="39" />
                             </RadioGroup>
                         </TableRow>
@@ -592,35 +573,39 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="It is convenient for me to weigh \nmyself at least once weekly \nयह मेरे लिए सुविधाजनक है अपने आप को \nवजन करने के लिए कम से एक कम बार साप्ताहिक"
                                 android:textSize="14sp" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="203dp">
 
                             <RadioGroup
                                 android:id="@+id/radioGroup9"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton41"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:tag="40" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton42"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="41" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton43"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
+                                    android:layout_height="64dp"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:gravity="center"
                                     android:tag="42" />
 
@@ -628,24 +613,23 @@
                                     android:id="@+id/radioButton44"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="AGREE "
                                     android:tag="43" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton45"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="44" />
                             </RadioGroup>
                         </TableRow>
 
                         <TableRow
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_height="wrap_content">
 
                             <TextView
                                 android:id="@+id/textView16"
@@ -653,35 +637,39 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="It is convenient for me to measure my \nblood pressure at least once weekly \nयह मेरे लिए सुविधाजनक है मेरे रक्तचाप को \nमापने के लिए कम से एक कम बार साप्ताहिक"
                                 android:textSize="14sp" />
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
                             <RadioGroup
                                 android:id="@+id/radioGroup10"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton46"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:tag="45" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton47"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="46" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton48"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
+                                    android:layout_height="64dp"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:gravity="center"
                                     android:tag="47" />
 
@@ -689,16 +677,16 @@
                                     android:id="@+id/radioButton49"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="AGREE "
                                     android:tag="48" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton50"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="49" />
                             </RadioGroup>
                         </TableRow>
@@ -713,35 +701,38 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="I feel comfortable sharing my data with my \nhealthcare provider during virtual visits \nमैं आभासी यात्राओं के दौरान अपने स्वास्थ्य सेवा प्रदाता के साथ \nअपने डेटा को साझा करने में सहज महसूस करता हूं"
                                 android:textSize="14sp" />
+                        </TableRow>
 
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
                             <RadioGroup
                                 android:id="@+id/radioGroup11"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton51"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:tag="50" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton52"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="51" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton53"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
+                                    android:layout_height="64dp"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:gravity="center"
                                     android:tag="52" />
 
@@ -749,16 +740,16 @@
                                     android:id="@+id/radioButton54"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="AGREE "
                                     android:tag="53" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton55"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="54" />
                             </RadioGroup>
                         </TableRow>
@@ -773,35 +764,38 @@
                                 android:layout_marginEnd="300dp"
                                 android:text="I am able to contact my healthcare provider \nin case of need and emergency \nमैं जरूरत और आपात स्थिति के मामले में अपने \nस्वास्थ्य सेवा प्रदाता से संपर्क करने में सक्षम हूं"
                                 android:textSize="14sp" />
+                        </TableRow>
 
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
                             <RadioGroup
                                 android:id="@+id/radioGroup12"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="-300dp"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/radioButton56"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="75dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nDISAGREE "
                                     android:tag="55" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton57"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
                                     android:gravity="center"
+                                    android:text="DISAGREE "
                                     android:tag="56" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton58"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="175dp"
+                                    android:layout_height="64dp"
+                                    android:text="NEITHER\nAGREE NOR\nDISAGREE "
                                     android:gravity="center"
                                     android:tag="57" />
 
@@ -809,16 +803,16 @@
                                     android:id="@+id/radioButton59"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="AGREE "
                                     android:tag="58" />
 
                                 <RadioButton
                                     android:id="@+id/radioButton60"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="170dp"
                                     android:gravity="center"
+                                    android:text="STRONGLY \nAGREE "
                                     android:tag="59" />
                             </RadioGroup>
                         </TableRow>

@@ -82,4 +82,12 @@
     <string name="fl">FL</string>
     <string name="efw">EFW</string>
     <string name="fill_again_n">Fill Again \nफिर से भरें</string>
+    <string name="file_a_complaint_n">File A Complaint \n एक शिकायत दर्ज करे</string>
+    <string name="complaint_solved_delete_it_n">Complaint Solved? delete it. \nशिकायत हल? इसे मिटाओ।</string>
+    <string name="enter_your_complaint_n">Enter Your Complaint... \n अपनी शिकायत दर्ज करें...</string>
+    <string name="verify_nemail_naddress">verify \nEmail \nAddress</string>
+    <string name="enter_phone_no_with_country_code">Enter Phone No. with Country Code</string>
+    <string name="enter_your_treatment_details_n">Enter Your Treatment Details... \n अपने उपचार विवरण दर्ज करें...</string>
+    <string name="enter_details_n">Enter Details \n विवरण दर्ज करें</string>
+    <string name="delete_details_n">Delete Details \nविवरण हटाएं</string>
 </resources>

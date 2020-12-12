@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".InvestigationsActivity">
 
-    <TextView
+    <Button
         android:id="@+id/routineTextView"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <Button
         android:id="@+id/ultrasoundTextView"
         android:layout_width="wrap_content"
         android:layout_height="65dp"

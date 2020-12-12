@@ -138,6 +138,7 @@
                 android:layout_marginEnd="16dp"
                 android:autofillHints=""
                 android:ems="10"
+                android:hint="Enter Phone No. with Country Code"
                 android:inputType="number|phone" />
 
             <TextView
@@ -161,28 +162,28 @@
                 android:enabled="false"
                 android:inputType="textMultiLine" />
 
-            <TextView
+            <Button
                 android:id="@+id/chooseHospitalTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/input"
+                android:background="@drawable/input2"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="10dp"
                 android:text="@string/choose_hospital"
                 android:textSize="18sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/signUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="40dp"
-                android:background="@drawable/input"
+                android:background="@drawable/input2"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="10dp"
                 android:text="@string/signup_here_n"
                 android:textSize="18sp"/>
 

@@ -28,25 +28,23 @@
                 android:id="@+id/editText_complaint"
                 android:layout_width="match_parent"
                 android:layout_height="324dp"
-                android:layout_centerHorizontal="true"
                 android:ems="10"
                 android:gravity="top"
-                android:hint="Enter Your Complaint... \n अपनी शिकायत दर्ज करें ..."
+                android:hint="@string/enter_your_complaint_n"
                 android:inputType="textMultiLine"
-                android:textColorHint="@android:color/primary_text_light_nodisable" />
+                android:textColorHint="@android:color/primary_text_light_nodisable"
+                android:autofillHints="" />
 
             <Button
                 android:id="@+id/button_complaint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/editText_complaint"
-                android:layout_centerHorizontal="true"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/input2"
                 android:padding="10dp"
-                android:text="File A Complaint \n  एक शिकायत दर्ज करे"
+                android:text="@string/file_a_complaint_n"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -54,14 +52,12 @@
                 android:id="@+id/button_delete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/button_complaint"
-                android:layout_centerHorizontal="true"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="32dp"
                 android:background="@drawable/input2"
                 android:padding="10dp"
-                android:text="Complaint Solved? delete it. \nशिकायत हल? इसे मिटाओ।"
+                android:text="@string/complaint_solved_delete_it_n"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>

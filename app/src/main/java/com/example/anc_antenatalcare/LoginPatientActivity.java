@@ -89,7 +89,7 @@ public class LoginPatientActivity extends AppCompatActivity {
                     loadingBar.show();
 
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                            "+91" + phn,        // Phone number to verify
+                            phn,        // Phone number to verify
                             60,                 // Timeout duration
                             TimeUnit.SECONDS,   // Unit of timeout
                             LoginPatientActivity.this,               // Activity (for callback binding)

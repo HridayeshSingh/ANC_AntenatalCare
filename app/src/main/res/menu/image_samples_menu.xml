@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:title="Image Sample 1"
+        android:title="Add X-ray Sample"
         android:id="@+id/image_sample_1" />
     <item
-        android:title="Image Sample 2"
+        android:title="Add CT Scan"
         android:id="@+id/image_sample_2" />
     <item
-        android:title="Image Sample 3"
+        android:title="Add Ultrasound Image"
         android:id="@+id/image_sample_3" />
     <item
-        android:title="Image Sample 4"
+        android:title="Add Doctor's Prescription"
         android:id="@+id/image_sample_4" />
 
 </menu>

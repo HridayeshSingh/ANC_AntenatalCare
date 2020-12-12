@@ -28,7 +28,6 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="32dp"
                 android:contentDescription="@string/string_todo"
                 app:srcCompat="@drawable/logo" />
@@ -71,6 +70,7 @@
                 android:layout_marginEnd="16dp"
                 android:autofillHints=""
                 android:ems="10"
+                android:hint="@string/enter_phone_no_with_country_code"
                 android:inputType="number|phone" />
 
             <TextView
@@ -87,23 +87,22 @@
                 android:id="@+id/editText_opdL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textView12"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:autofillHints=""
                 android:ems="10"
                 android:inputType="number|textPersonName" />
 
-            <TextView
+            <Button
                 android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="16dp"
-                android:background="@drawable/input"
+                android:background="@drawable/input2"
                 android:gravity="center"
-                android:padding="8dp"
+                android:padding="10dp"
                 android:text="@string/login_here_n"
                 android:textSize="18sp" />
 
@@ -111,7 +110,6 @@
                 android:id="@+id/verification_code_entered_by_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:autofillHints=""
@@ -123,7 +121,6 @@
                 android:id="@+id/verify_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:background="#fece2f"

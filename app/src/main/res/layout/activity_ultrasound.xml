@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <Button
                 android:id="@+id/newInvestigationTextView"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
                 android:text="@string/new_investigation"
                 android:textSize="18sp" />
 
-            <TextView
+            <Button
                 android:id="@+id/previousInvestigationTextView"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -71,7 +71,8 @@
                     android:hint="@string/date_format"
                     android:inputType="date"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:autofillHints="" />
 
             </LinearLayout>
 
@@ -96,7 +97,8 @@
                     android:ems="10"
                     android:inputType="number"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:autofillHints="" />
 
             </LinearLayout>
 
@@ -121,7 +123,8 @@
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:autofillHints="" />
 
             </LinearLayout>
 
@@ -146,7 +149,8 @@
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:autofillHints="" />
 
             </LinearLayout>
 
@@ -171,7 +175,8 @@
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:autofillHints="" />
 
             </LinearLayout>
 
@@ -196,7 +201,8 @@
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:autofillHints="" />
 
             </LinearLayout>
 
@@ -221,7 +227,8 @@
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:autofillHints="" />
 
             </LinearLayout>
 
@@ -246,7 +253,8 @@
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:autofillHints="" />
 
             </LinearLayout>
 
@@ -256,7 +264,7 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <TextView
+                <Button
                     android:id="@+id/submitTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -268,7 +276,7 @@
                     android:textSize="18sp"
                     tools:ignore="NestedWeights" />
 
-                <TextView
+                <Button
                     android:id="@+id/clearAllTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
