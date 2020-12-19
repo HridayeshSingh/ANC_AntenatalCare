@@ -29,6 +29,8 @@ public class ComplaintsActivity extends AppCompatActivity {
     private EditText editText_complaint;
     private Button button_complaint, button_delete;
 
+    private String mode;
+    private String selectedPatient;
     private String CurrentUserID;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference RootRef;
@@ -44,7 +46,12 @@ public class ComplaintsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        CurrentUserID = firebaseAuth.getCurrentUser().getUid();
+        mode = getIntent().getStringExtra("mode");
+        selectedPatient = getIntent().getStringExtra("selectedPatient");
+        if(mode.equals("patient"))
+            CurrentUserID = firebaseAuth.getCurrentUser().getUid();
+        else
+            CurrentUserID = selectedPatient;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
         editText_complaint = findViewById(R.id.editText_complaint);
@@ -52,6 +59,23 @@ public class ComplaintsActivity extends AppCompatActivity {
         button_delete = findViewById(R.id.button_delete);
 
         RetrieveUserInfo();
+
+        /*if(mode.equals("patient")) {
+            if(editText_complaint.getText().toString().isEmpty()) {
+                editText_complaint.setEnabled(true);
+                button_complaint.setEnabled(true);
+                button_delete.setEnabled(false);
+            } else {
+                editText_complaint.setEnabled(false);
+                button_complaint.setEnabled(false);
+                button_delete.setEnabled(true);
+            }
+        } */
+        if(mode.equals("doctor")){
+            editText_complaint.setEnabled(false);
+            button_complaint.setEnabled(false);
+            button_delete.setEnabled(false);
+        }
 
         button_complaint.setOnClickListener(new View.OnClickListener() {
             @Override

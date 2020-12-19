@@ -26,6 +26,7 @@ public class UltrasoundActivity extends AppCompatActivity {
 
     ArrayList<String> datesList = new ArrayList<>();
     ArrayList<DataSnapshot> datesSnapshots = new ArrayList<>();
+    private String mode, selectedPatient;
     String currentUser;
     int entriesCount = 0;
     boolean isPreviousButtonSelectedBefore = false;
@@ -54,7 +55,13 @@ public class UltrasoundActivity extends AppCompatActivity {
         flEditText = findViewById(R.id.flEditText);
         efwEditText = findViewById(R.id.efwEditText);
 
-        currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mode = getIntent().getStringExtra("mode");
+        selectedPatient = getIntent().getStringExtra("selectedPatient");
+
+        if(mode.equals("patient"))
+            currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        else
+            currentUser = selectedPatient;
 
         reset();
         retrieve();

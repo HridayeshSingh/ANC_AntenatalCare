@@ -101,7 +101,7 @@ public class SignupDoctorActivity extends AppCompatActivity {
                                         submitDoctorDetails(hospitalKey);
                                     }
                                     Toast.makeText(getApplicationContext(), "Doctor Registered Successfully", Toast.LENGTH_SHORT).show();
-                                    sendUserToDoctorEmailVerifyActivity();
+                                    sendUserToSelectPatientActivity();
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Sign Up Failed!", Toast.LENGTH_SHORT).show();
                                 }
@@ -148,8 +148,8 @@ public class SignupDoctorActivity extends AppCompatActivity {
 
     }
 
-    public void sendUserToDoctorEmailVerifyActivity() {
-        Intent i = new Intent(getApplicationContext(), DoctorEmailVerifyActivity.class);
+    public void sendUserToSelectPatientActivity() {
+        Intent i = new Intent(getApplicationContext(), SelectPatientActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
         finish();

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DoctorEmailVerifyActivity"></activity>
+        <activity android:name=".SelectPatientActivity" />
+        <activity android:name=".DoctorEmailVerifyActivity" />
         <activity
             android:name=".TreatmentActivity"
             android:parentActivityName=".MainPage" />
@@ -44,11 +45,8 @@
             android:name=".ImageSamplesActivity"
             android:parentActivityName=".MainPage" />
         <activity
-            android:name=".AppointmentDatesDoctorActivity"
-            android:parentActivityName=".AppointmentDatesActivity" />
-        <activity
             android:name=".AppointmentDatesActivity"
-            android:parentActivityName=".MainPage" />
+            android:parentActivityName=".AppointmentDatesActivity" />
         <activity
             android:name=".PatientDetails"
             android:parentActivityName=".MainPage" />
@@ -58,7 +56,9 @@
         <activity
             android:name=".SignupPatientActivity"
             android:parentActivityName=".DocPatDecisionActivity" />
-        <activity android:name=".MainPage" />
+        <activity
+            android:name=".MainPage"
+            android:parentActivityName=".SelectPatientActivity" />
         <activity android:name=".SignUpInDecisionActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

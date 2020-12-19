@@ -89,14 +89,14 @@ public class LoginPatientActivity extends AppCompatActivity {
                     loadingBar.show();
 
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                            phn,        // Phone number to verify
+                            "+91"+phn,        // Phone number to verify
                             60,                 // Timeout duration
                             TimeUnit.SECONDS,   // Unit of timeout
                             LoginPatientActivity.this,               // Activity (for callback binding)
                             mCallbacks);
                 }
                 else {
-                    SendUserToSignupActivity();
+                    sendUserToSignupActivity();
                 }
 
             }
@@ -171,7 +171,7 @@ public class LoginPatientActivity extends AppCompatActivity {
 
                                 loadingBar.dismiss();
 
-                                SendUserToMainPageActivity();
+                                sendUserToMainPageActivity();
 
                             }
                             else {
@@ -181,14 +181,15 @@ public class LoginPatientActivity extends AppCompatActivity {
                     });
     }
 
-    private void SendUserToMainPageActivity() {
+    private void sendUserToMainPageActivity() {
         Intent i = new Intent(getApplicationContext(), MainPage.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        i.putExtra("mode", "patient");
         startActivity(i);
         finish();
     }
 
-    private void SendUserToSignupActivity() {
+    private void sendUserToSignupActivity() {
         Intent i = new Intent(getApplicationContext(), SignupPatientActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);

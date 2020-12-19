@@ -23,54 +23,82 @@ import com.google.firebase.database.ValueEventListener;
 public class MainPage extends AppCompatActivity {
 
     private TextView patientDetails, pregnancyDetails, investigation, treatmentDetails, complaints, appointmentDates, imageSample;
+    private String mode, selectedPatient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        mode = getIntent().getStringExtra("mode");
+        selectedPatient = getIntent().getStringExtra("selectedPatient");
+
         InitializeFields();
 
         patientDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), PatientDetails.class));
+                Intent intent = new Intent(getApplicationContext(), PatientDetails.class);
+                intent.putExtra("mode", mode);
+                intent.putExtra("selectedPatient", selectedPatient);
+                startActivity(intent);
             }
         });
         pregnancyDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), PregnancyDetailsActivity.class));
+                Intent intent = new Intent(getApplicationContext(), PregnancyDetailsActivity.class);
+                intent.putExtra("mode", mode);
+                intent.putExtra("selectedPatient", selectedPatient);
+                startActivity(intent);
             }
         });
         investigation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), InvestigationsActivity.class));
+                Intent intent = new Intent(getApplicationContext(), InvestigationsActivity.class);
+                intent.putExtra("mode", mode);
+                intent.putExtra("selectedPatient", selectedPatient);
+                startActivity(intent);
             }
         });
         appointmentDates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), AppointmentDatesActivity.class));
+                Intent intent = new Intent(getApplicationContext(), AppointmentDatesActivity.class);
+                intent.putExtra("mode", mode);
+                intent.putExtra("selectedPatient", selectedPatient);
+                startActivity(intent);
             }
         });
         imageSample.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ImageSamplesActivity.class));
+                Intent intent = new Intent(getApplicationContext(), ImageSamplesActivity.class);
+                intent.putExtra("mode", mode);
+                intent.putExtra("selectedPatient", selectedPatient);
+                startActivity(intent);
             }
         });
         complaints.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ComplaintsActivity.class));
+                Intent intent = new Intent(getApplicationContext(), ComplaintsActivity.class);
+                intent.putExtra("mode", mode);
+                intent.putExtra("selectedPatient", selectedPatient);
+                startActivity(intent);
             }
         });
         treatmentDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), TreatmentActivity.class));
+                Intent intent = new Intent(getApplicationContext(), TreatmentActivity.class);
+                intent.putExtra("mode", mode);
+                intent.putExtra("selectedPatient", selectedPatient);
+                startActivity(intent);
             }
         });
     }
@@ -100,7 +128,7 @@ public class MainPage extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.feedback:
-                Toast.makeText(this, "You are in Feedback now",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "You are in Feedback now!",Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainPage.this, FeedbackActivity.class));
                 return true;
             case R.id.help:
@@ -108,7 +136,7 @@ public class MainPage extends AppCompatActivity {
                 //startActivity(new Intent(MainPage.this, Help.class));
                 return true;
             case R.id.logout:
-                Toast.makeText(this, "You are Logged out",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "You are Logged out!",Toast.LENGTH_SHORT).show();
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(MainPage.this, SignUpInDecisionActivity.class));
                 return true;

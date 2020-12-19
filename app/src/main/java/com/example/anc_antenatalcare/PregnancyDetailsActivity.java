@@ -27,6 +27,8 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
 
     ArrayList<String> datesList = new ArrayList<>();
     ArrayList<DataSnapshot> datesSnapshots = new ArrayList<>();
+    private String mode;
+    private String selectedPatient;
     String currentUser;
     int entriesCount = 0;
     boolean isPreviousButtonSelectedBefore = false;
@@ -56,7 +58,13 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
         eddEditText = findViewById(R.id.eddEditText);
         diagnosisEditText = findViewById(R.id.diagnosisEditText);
 
-        currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mode = getIntent().getStringExtra("mode");
+        selectedPatient = getIntent().getStringExtra("selectedPatient");
+
+        if(mode.equals("patient"))
+            currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        else
+            currentUser = selectedPatient;
 
         reset();
         retrieve();

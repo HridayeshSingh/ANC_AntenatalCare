@@ -7,8 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class InvestigationsActivity extends AppCompatActivity {
     TextView routineTextView, ultrasoundTextView;
+
+    private String mode;
+    private String selectedPatient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,17 +28,26 @@ public class InvestigationsActivity extends AppCompatActivity {
         routineTextView = findViewById(R.id.routineTextView);
         ultrasoundTextView = findViewById(R.id.ultrasoundTextView);
 
+        mode = getIntent().getStringExtra("mode");
+        selectedPatient = getIntent().getStringExtra("selectedPatient");
+
         routineTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), RoutineInvestigationsActivity.class));
+                Intent intent = new Intent(getApplicationContext(), RoutineInvestigationsActivity.class);
+                intent.putExtra("mode", mode);
+                intent.putExtra("selectedPatient", selectedPatient);
+                startActivity(intent);
             }
         });
 
         ultrasoundTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), UltrasoundActivity.class));
+                Intent intent = new Intent(getApplicationContext(), UltrasoundActivity.class);
+                intent.putExtra("mode", mode);
+                intent.putExtra("selectedPatient", selectedPatient);
+                startActivity(intent);
             }
         });
     }

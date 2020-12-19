@@ -26,6 +26,8 @@ public class RoutineInvestigationsActivity extends AppCompatActivity {
 
     ArrayList<String> datesList = new ArrayList<>();
     ArrayList<DataSnapshot> datesSnapshots = new ArrayList<>();
+    private String mode;
+    private String selectedPatient;
     String currentUser;
     int entriesCount = 0;
     boolean isPreviousButtonSelectedBefore = false;
@@ -57,7 +59,13 @@ public class RoutineInvestigationsActivity extends AppCompatActivity {
         serumEditText = findViewById(R.id.serumEditText);
         otherEditText = findViewById(R.id.otherEditText);
 
-        currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mode = getIntent().getStringExtra("mode");
+        selectedPatient = getIntent().getStringExtra("selectedPatient");
+
+        if(mode.equals("patient"))
+            currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        else
+            currentUser = selectedPatient;
 
         reset();
         retrieve();

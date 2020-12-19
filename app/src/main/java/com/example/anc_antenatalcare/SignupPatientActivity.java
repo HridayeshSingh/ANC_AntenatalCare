@@ -269,7 +269,7 @@ public class SignupPatientActivity extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                SendUserToMainPageActivity();
+                                                sendUserToMainPageActivity();
                                                 Toast.makeText(SignupPatientActivity.this, "Patient's Profile Updated Successfully...", Toast.LENGTH_SHORT).show();
                                             }
                                         }
@@ -283,9 +283,10 @@ public class SignupPatientActivity extends AppCompatActivity {
                 });
     }
 
-    private void SendUserToMainPageActivity() {
+    private void sendUserToMainPageActivity() {
         Intent i = new Intent(getApplicationContext(), MainPage.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        i.putExtra("mode", "patient");
         startActivity(i);
         finish();
     }

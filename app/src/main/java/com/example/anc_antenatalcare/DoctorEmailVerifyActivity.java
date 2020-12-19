@@ -54,14 +54,14 @@ public class DoctorEmailVerifyActivity extends AppCompatActivity {
     protected void onStart() {
 
         if (fUser.isEmailVerified()) {
-            SendUserToMainPageActivity();
+            sendUserToSelectPatientActivity();
         }
 
         super.onStart();
     }
 
-    private void SendUserToMainPageActivity() {
-        Intent i = new Intent(getApplicationContext(), MainPage.class);
+    private void sendUserToSelectPatientActivity() {
+        Intent i = new Intent(getApplicationContext(), SelectPatientActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
         finish();

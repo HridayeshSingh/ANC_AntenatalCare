@@ -28,6 +28,7 @@ public class ImageSamplesActivity extends AppCompatActivity {
 
     private ImageView imageSample1, imageSample2, imageSample3, imageSample4;
 
+    private String mode, selectedPatient;
     private String CurrentUserID;
     private FirebaseAuth firebaseAuth;
     private StorageReference RootRefImage, RootRefImage2, RootRefImage3, RootRefImage4;
@@ -48,7 +49,14 @@ public class ImageSamplesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        CurrentUserID = firebaseAuth.getCurrentUser().getUid();
+        mode = getIntent().getStringExtra("mode");
+        selectedPatient = getIntent().getStringExtra("selectedPatient");
+
+        if(mode.equals("patient"))
+            CurrentUserID = firebaseAuth.getCurrentUser().getUid();
+        else
+            CurrentUserID = selectedPatient;
+
         RootRefImage = FirebaseStorage.getInstance().getReference().child("Image Samples").child("Image Sample 1");
         RootRefImage2 = FirebaseStorage.getInstance().getReference().child("Image Samples").child("Image Sample 2");
         RootRefImage3 = FirebaseStorage.getInstance().getReference().child("Image Samples").child("Image Sample 3");

@@ -51,7 +51,7 @@ public class LoginDoctorActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Login Successful!", Toast.LENGTH_SHORT).show();
-                                    sendUserToDoctorEmailVerifyActivity();
+                                    sendUserToSelectPatientActivity();
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Login Failed!", Toast.LENGTH_SHORT).show();
                                 }
@@ -62,8 +62,8 @@ public class LoginDoctorActivity extends AppCompatActivity {
         });
     }
 
-    public void sendUserToDoctorEmailVerifyActivity() {
-        Intent intentDoc = new Intent(getApplicationContext(), DoctorEmailVerifyActivity.class);
+    public void sendUserToSelectPatientActivity() {
+        Intent intentDoc = new Intent(getApplicationContext(), SelectPatientActivity.class);
         intentDoc.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intentDoc);
         finish();

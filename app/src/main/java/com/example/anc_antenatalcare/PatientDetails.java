@@ -17,6 +17,8 @@ public class PatientDetails extends AppCompatActivity {
 
     private TextView patName, patAge, husName, address, phn, opd, hosName;
 
+    private String mode;
+    private String selectedPatient;
     private String CurrentUserID;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference RootRef;
@@ -31,9 +33,15 @@ public class PatientDetails extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        mode = getIntent().getStringExtra("mode");
+        selectedPatient = getIntent().getStringExtra("selectedPatient");
         firebaseAuth = FirebaseAuth.getInstance();
-        CurrentUserID = firebaseAuth.getCurrentUser().getUid();
         RootRef = FirebaseDatabase.getInstance().getReference();
+
+        if(mode.equals("patient"))
+            CurrentUserID = firebaseAuth.getCurrentUser().getUid();
+        else
+            CurrentUserID = selectedPatient;
 
         InitializeFields();
 
