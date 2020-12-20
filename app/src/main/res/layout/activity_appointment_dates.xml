@@ -31,9 +31,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:autofillHints="" />
+                android:hint="@string/date_format"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/editText_D2"
@@ -41,9 +42,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:autofillHints="" />
+                android:hint="@string/date_format"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/editText_D3"
@@ -51,9 +53,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:autofillHints="" />
+                android:hint="@string/date_format"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/editText_D4"
@@ -61,9 +64,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:autofillHints="" />
+                android:hint="@string/date_format"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/editText_D5"
@@ -71,9 +75,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:autofillHints="" />
+                android:hint="@string/date_format"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/editText_D6"
@@ -81,9 +86,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:autofillHints="" />
+                android:hint="@string/date_format"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/editText_D7"
@@ -91,9 +97,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:autofillHints="" />
+                android:hint="@string/date_format"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/editText_D8"
@@ -101,9 +108,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:autofillHints="" />
+                android:hint="@string/date_format"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/editText_D9"
@@ -111,9 +119,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:autofillHints="" />
+                android:hint="@string/date_format"
+                android:inputType="date" />
 
             <EditText
                 android:id="@+id/editText_D10"
@@ -121,9 +130,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:autofillHints=""
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:autofillHints="" />
+                android:hint="@string/date_format"
+                android:inputType="date" />
 
             <Button
                 android:id="@+id/updateButton"

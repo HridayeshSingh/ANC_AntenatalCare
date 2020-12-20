@@ -99,20 +99,20 @@ public class AppointmentDatesActivity extends AppCompatActivity {
     }
 
     private void RetrieveUserInfo(){
-        RootRef.child("appointments").child(CurrentUserID).child("Dates")
+        RootRef.child("appointments").child(CurrentUserID)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if ((snapshot.exists())) {
-                            String retrieveD1 = snapshot.child("Date-1").getValue().toString();
-                            String retrieveD2 = snapshot.child("Date-2").getValue().toString();
-                            String retrieveD3 = snapshot.child("Date-3").getValue().toString();
-                            String retrieveD4 = snapshot.child("Date-4").getValue().toString();
-                            String retrieveD5 = snapshot.child("Date-5").getValue().toString();
-                            String retrieveD6 = snapshot.child("Date-6").getValue().toString();
-                            String retrieveD7 = snapshot.child("Date-7").getValue().toString();
-                            String retrieveD8 = snapshot.child("Date-8").getValue().toString();
-                            String retrieveD9 = snapshot.child("Date-9").getValue().toString();
+                            String retrieveD1 = snapshot.child("Date-01").getValue().toString();
+                            String retrieveD2 = snapshot.child("Date-02").getValue().toString();
+                            String retrieveD3 = snapshot.child("Date-03").getValue().toString();
+                            String retrieveD4 = snapshot.child("Date-04").getValue().toString();
+                            String retrieveD5 = snapshot.child("Date-05").getValue().toString();
+                            String retrieveD6 = snapshot.child("Date-06").getValue().toString();
+                            String retrieveD7 = snapshot.child("Date-07").getValue().toString();
+                            String retrieveD8 = snapshot.child("Date-08").getValue().toString();
+                            String retrieveD9 = snapshot.child("Date-09").getValue().toString();
                             String retrieveD10 = snapshot.child("Date-10").getValue().toString();
 
                             editText_D1.setText(retrieveD1);
@@ -148,30 +148,31 @@ public class AppointmentDatesActivity extends AppCompatActivity {
         String setD10 = editText_D10.getText().toString();
 
         HashMap<String, String> profileMap = new HashMap<>();
-            profileMap.put("Date-1", setD1);
-            profileMap.put("Date-2", setD2);
-            profileMap.put("Date-3", setD3);
-            profileMap.put("Date-4", setD4);
-            profileMap.put("Date-5", setD5);
-            profileMap.put("Date-6", setD6);
-            profileMap.put("Date-7", setD7);
-            profileMap.put("Date-8", setD8);
-            profileMap.put("Date-9", setD9);
+            profileMap.put("Date-01", setD1);
+            profileMap.put("Date-02", setD2);
+            profileMap.put("Date-03", setD3);
+            profileMap.put("Date-04", setD4);
+            profileMap.put("Date-05", setD5);
+            profileMap.put("Date-06", setD6);
+            profileMap.put("Date-07", setD7);
+            profileMap.put("Date-08", setD8);
+            profileMap.put("Date-09", setD9);
             profileMap.put("Date-10", setD10);
-        RootRef.child("appointments").child(CurrentUserID).child("Dates").setValue(profileMap)
+        RootRef.child("appointments").child(CurrentUserID).setValue(profileMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            SendUserToAppointmentDatesActivity();
+                            //sendUserToMainPageActivity();
+                            finish();
                             Toast.makeText(AppointmentDatesActivity.this, "Dates Updated Successfully...", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
 
-    private void SendUserToAppointmentDatesActivity() {
-        Intent appointmentDatesIntent = new Intent(AppointmentDatesActivity.this, AppointmentDatesActivity.class);
+    private void sendUserToMainPageActivity() {
+        Intent appointmentDatesIntent = new Intent(AppointmentDatesActivity.this, MainPage.class);
         appointmentDatesIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(appointmentDatesIntent);
         finish();
