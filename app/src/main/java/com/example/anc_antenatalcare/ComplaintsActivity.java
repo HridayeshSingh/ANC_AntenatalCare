@@ -60,17 +60,6 @@ public class ComplaintsActivity extends AppCompatActivity {
 
         RetrieveUserInfo();
 
-        /*if(mode.equals("patient")) {
-            if(editText_complaint.getText().toString().isEmpty()) {
-                editText_complaint.setEnabled(true);
-                button_complaint.setEnabled(true);
-                button_delete.setEnabled(false);
-            } else {
-                editText_complaint.setEnabled(false);
-                button_complaint.setEnabled(false);
-                button_delete.setEnabled(true);
-            }
-        } */
         if(mode.equals("doctor")){
             editText_complaint.setEnabled(false);
             button_complaint.setEnabled(false);
@@ -114,18 +103,11 @@ public class ComplaintsActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            SendUserToMainPageActivity();
                             Toast.makeText(ComplaintsActivity.this, "Complaint Filed Successfully...", Toast.LENGTH_SHORT).show();
+                            finish();
                         }
                     }
                 });
-    }
-
-    private void SendUserToMainPageActivity() {
-        Intent mainPageIntent = new Intent(ComplaintsActivity.this, MainPage.class);
-        mainPageIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(mainPageIntent);
-        finish();
     }
 
     private void RetrieveUserInfo() {
@@ -152,8 +134,8 @@ public class ComplaintsActivity extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        SendUserToMainPageActivity();
                         Toast.makeText(ComplaintsActivity.this, "Complaint Deleted", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 });
     }

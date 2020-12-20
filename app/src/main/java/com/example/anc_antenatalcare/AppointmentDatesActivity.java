@@ -163,18 +163,10 @@ public class AppointmentDatesActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            //sendUserToMainPageActivity();
-                            finish();
                             Toast.makeText(AppointmentDatesActivity.this, "Dates Updated Successfully...", Toast.LENGTH_SHORT).show();
+                            finish();
                         }
                     }
                 });
-    }
-
-    private void sendUserToMainPageActivity() {
-        Intent appointmentDatesIntent = new Intent(AppointmentDatesActivity.this, MainPage.class);
-        appointmentDatesIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(appointmentDatesIntent);
-        finish();
     }
 }
