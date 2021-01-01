@@ -2,65 +2,109 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/black">
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/linearLayout2"
-        android:layout_marginBottom="365dp">
-
-        <ImageView
-            android:id="@+id/imageSample1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/string_todo"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/logo" />
-
-        <ImageView
-            android:id="@+id/imageSample2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/string_todo"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/logo" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="365dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageSample3"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/string_todo"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/logo" />
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imageSample4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/string_todo"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/logo" />
-    </LinearLayout>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:baselineAligned="false">
+
+                    <androidx.gridlayout.widget.GridLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:columnCount="2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:rowCount="2">
+
+                        <ImageView
+                            android:id="@+id/imageSample1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:contentDescription="@string/string_todo"
+                            android:scaleType="fitXY"
+                            app:layout_column="0"
+                            app:layout_row="0"
+                            app:srcCompat="@drawable/logo" />
+
+                        <ImageView
+                            android:id="@+id/imageSample2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:contentDescription="@string/string_todo"
+                            android:scaleType="fitXY"
+                            app:layout_column="1"
+                            app:layout_row="0"
+                            app:srcCompat="@drawable/logo" />
+
+                        <ImageView
+                            android:id="@+id/imageSample3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/string_todo"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="10dp"
+                            android:scaleType="fitXY"
+                            app:layout_column="0"
+                            app:layout_row="1"
+                            app:srcCompat="@drawable/logo" />
+
+                        <ImageView
+                            android:id="@+id/imageSample4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/string_todo"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:scaleType="fitXY"
+                            app:layout_column="1"
+                            app:layout_row="1"
+                            app:srcCompat="@drawable/logo" />
+                    </androidx.gridlayout.widget.GridLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

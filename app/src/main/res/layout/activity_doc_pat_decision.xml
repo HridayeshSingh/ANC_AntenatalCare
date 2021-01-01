@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/doctorTextView"
+        android:id="@+id/doctorButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -29,12 +29,13 @@
         android:padding="12dp"
         android:text="@string/doctor"
         android:textSize="20sp"
+        android:onClick="doctorClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionTextView" />
 
     <Button
-        android:id="@+id/patientTextView"
+        android:id="@+id/patientButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -45,9 +46,10 @@
         android:padding="12dp"
         android:text="@string/patient"
         android:textSize="20sp"
+        android:onClick="patientClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/doctorTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/doctorButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

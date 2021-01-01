@@ -216,10 +216,11 @@
                 android:inputType="number" />
 
             <Button
-                android:id="@+id/signUpTextView"
+                android:id="@+id/signUpButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input2"
+                android:onClick="signUpDoctor"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/signup_here_n"

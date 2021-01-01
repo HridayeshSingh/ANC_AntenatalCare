@@ -26,24 +26,26 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/newInvestigationTextView"
+                android:id="@+id/newObstetricButton"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/input"
+                android:onClick="newObstetric"
                 android:gravity="center"
                 android:padding="8dp"
                 android:text="@string/new_investigation"
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/previousInvestigationTextView"
+                android:id="@+id/previousObstetricButton"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/input"
+                android:onClick="previousObstetric"
                 android:gravity="center"
                 android:padding="8dp"
                 android:text="@string/view_previous_investigation"
@@ -95,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number"
+                    android:inputType="number|phone"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:autofillHints="" />
@@ -121,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="numberDecimal"
+                    android:inputType="number|phone"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:autofillHints="" />
@@ -147,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="numberDecimal"
+                    android:inputType="number|phone"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:autofillHints="" />
@@ -173,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="numberDecimal"
+                    android:inputType="number|phone"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:autofillHints="" />
@@ -199,7 +201,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="numberDecimal"
+                    android:inputType="number|phone"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:autofillHints="" />
@@ -225,7 +227,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="numberDecimal"
+                    android:inputType="number|phone"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:autofillHints="" />
@@ -245,13 +247,14 @@
                     android:text="@string/efw"
                     android:textSize="18sp" />
 
+
                 <EditText
                     android:id="@+id/efwEditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="numberDecimal"
+                    android:inputType="textPersonName"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:autofillHints="" />
@@ -265,11 +268,12 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/submitTextView"
+                    android:id="@+id/submitObstetricButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/input"
+                    android:onClick="submitObstetric"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/submit"
@@ -277,11 +281,12 @@
                     tools:ignore="NestedWeights" />
 
                 <Button
-                    android:id="@+id/clearAllTextView"
+                    android:id="@+id/clearAllObstetricButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/input"
+                    android:onClick="clearAllObstetric"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/clear_all"

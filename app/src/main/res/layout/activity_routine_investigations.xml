@@ -26,24 +26,26 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/newInvestigationTextView"
-                android:layout_width="250dp"
+                android:id="@+id/newInvestigationButton"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/input"
+                android:onClick="newInvestigation"
                 android:gravity="center"
                 android:padding="8dp"
                 android:text="@string/new_investigation"
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/previousInvestigationTextView"
-                android:layout_width="250dp"
+                android:id="@+id/previousInvestigationButton"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/input"
+                android:onClick="previousInvestigation"
                 android:gravity="center"
                 android:padding="8dp"
                 android:text="@string/view_previous_investigation"
@@ -303,7 +305,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:autofillHints="" />
@@ -343,11 +345,12 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/submitTextView"
+                    android:id="@+id/submitButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/input"
+                    android:onClick="submitInvestigationDetails"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/submit"
@@ -355,11 +358,12 @@
                     tools:ignore="NestedWeights" />
 
                 <Button
-                    android:id="@+id/clearAllTextView"
+                    android:id="@+id/clearAllButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/input"
+                    android:onClick="clearAllInvestigationDetails"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/clear_all"

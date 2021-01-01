@@ -7,9 +7,9 @@
     tools:context=".InvestigationsActivity">
 
     <Button
-        android:id="@+id/routineTextView"
+        android:id="@+id/routineButton"
         android:layout_width="wrap_content"
-        android:layout_height="65dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -19,16 +19,17 @@
         android:padding="10dp"
         android:text="@string/routine_investigations"
         android:textSize="24sp"
+        android:onClick="routine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/ultrasoundTextView"
+        android:id="@+id/ultrasoundButton"
         android:layout_width="wrap_content"
-        android:layout_height="65dp"
-        android:layout_below="@+id/routineTextView"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/routineButton"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
@@ -38,8 +39,9 @@
         android:padding="10dp"
         android:text="@string/obstetric_ultrasound"
         android:textSize="24sp"
+        android:onClick="ultrasound"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/routineTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/routineButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

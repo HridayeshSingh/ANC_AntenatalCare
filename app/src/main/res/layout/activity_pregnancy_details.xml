@@ -26,24 +26,26 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/newDetailsTextView"
-                android:layout_width="220dp"
+                android:id="@+id/newDetailsButton"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/input"
+                android:onClick="newDetails"
                 android:gravity="center"
                 android:padding="8dp"
                 android:text="@string/add_new_details"
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/previousDetailsTextView"
-                android:layout_width="220dp"
+                android:id="@+id/previousDetailsButton"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/input"
+                android:onClick="previousDetails"
                 android:gravity="center"
                 android:padding="8dp"
                 android:text="@string/view_previous_details"
@@ -294,11 +296,12 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/submitTextView"
+                    android:id="@+id/submitButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/input"
+                    android:onClick="submitDetails"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/submit"
@@ -306,11 +309,12 @@
                     tools:ignore="NestedWeights" />
 
                 <Button
-                    android:id="@+id/clearAllTextView"
+                    android:id="@+id/clearAllButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/input"
+                    android:onClick="clearDetails"
                     android:gravity="center"
                     android:padding="8dp"
                     android:text="@string/clear_all"

@@ -15,6 +15,67 @@
       },
       "oauth_client": [
         {
+          "client_id": "564173439864-o52s8njmgt1gla2qtann1aloguvfst33.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.anc_antenatalcare",
+            "certificate_hash": "b30f4820cb9b942e09a6ce0df5e4f68b48516565"
+          }
+        },
+        {
+          "client_id": "564173439864-r9a8jl1l2b9731ijt0fcmd71bbfshacp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.anc_antenatalcare",
+            "certificate_hash": "a953b0ec6f922ca79324f7d248dc76486bdd3b5c"
+          }
+        },
+        {
+          "client_id": "564173439864-cuf3pepgcf23mkm5kn1imo4t5ni134al.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwfuT_CvcMbrvFQQ0w5iNbp1AvWVnzmf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564173439864-cuf3pepgcf23mkm5kn1imo4t5ni134al.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564173439864:android:a7a8527fcb6992ea2d7e8d",
+        "android_client_info": {
+          "package_name": "com.gmail.anc.antenatalcare.anc_antenatalcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564173439864-cno72p6c7b8fovhpr3oqjbi6phh5ja6b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gmail.anc.antenatalcare.anc_antenatalcare",
+            "certificate_hash": "a953b0ec6f922ca79324f7d248dc76486bdd3b5c"
+          }
+        },
+        {
+          "client_id": "564173439864-ilgsbqkvs8mnnildtn1060b5ui4k7i4m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gmail.anc.antenatalcare.anc_antenatalcare",
+            "certificate_hash": "b30f4820cb9b942e09a6ce0df5e4f68b48516565"
+          }
+        },
+        {
           "client_id": "564173439864-cuf3pepgcf23mkm5kn1imo4t5ni134al.apps.googleusercontent.com",
           "client_type": 3
         }

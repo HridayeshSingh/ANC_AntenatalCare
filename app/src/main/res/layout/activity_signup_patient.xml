@@ -169,6 +169,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/input2"
+                android:onClick="chooseHospital"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/choose_hospital"
@@ -182,6 +183,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/input2"
+                android:onClick="signUpPatient"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/signup_here_n"
@@ -204,6 +206,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
+                android:onClick="verifyPat"
                 android:background="#fece2f"
                 android:text="@string/verify"
                 android:visibility="invisible" />
