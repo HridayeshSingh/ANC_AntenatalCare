@@ -104,6 +104,7 @@ public class FeedbackActivity extends AppCompatActivity {
 
         for (int i = 0; i <= 11; i++){
             storeUserResponse(textFields[i], radioGroups[i]);
+            setEnabledRadioButtons(radioGroups[i], false);
         }
         again.setVisibility(View.VISIBLE);
         submit.setVisibility(View.INVISIBLE);
@@ -135,9 +136,22 @@ public class FeedbackActivity extends AppCompatActivity {
     }
 
     public void onAgain(View view) {
-        Intent i = new Intent(getApplicationContext(), FeedbackActivity.class);
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(i);
+//        Intent i = new Intent(getApplicationContext(), FeedbackActivity.class);
+//        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//        startActivity(i);
+
+        for(int i = 0; i <= 11; i++) {
+            radioGroups[i].clearCheck();
+            setEnabledRadioButtons(radioGroups[i], true);
+        }
+        again.setVisibility(View.INVISIBLE);
+        submit.setVisibility(View.VISIBLE);
+    }
+
+    private void setEnabledRadioButtons(RadioGroup rg, boolean choice) {
+        for(int i = 0; i < rg.getChildCount(); i++) {
+            rg.getChildAt(i).setEnabled(choice);
+        }
     }
 
 }

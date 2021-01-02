@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 public class SignupPatientActivity extends AppCompatActivity {
 
     private EditText editText_patName, editText_age, editText_husName, editText_address, editText_phn, editText_opd, editText_hosName;
-    private Button signUpButton, verifyButton;
+    private Button signUpButton, verifyButton, chooseHospitalButton;
 
     private DatabaseReference databaseReference;
 
@@ -79,6 +79,13 @@ public class SignupPatientActivity extends AppCompatActivity {
                 loadingBar.dismiss();
                 Toast.makeText(SignupPatientActivity.this, e.getMessage() ,Toast.LENGTH_SHORT).show();
 
+                editText_patName.setEnabled(true);
+                editText_age.setEnabled(true);
+                editText_husName.setEnabled(true);
+                editText_address.setEnabled(true);
+                editText_opd.setEnabled(true);
+                editText_phn.setEnabled(true);
+                chooseHospitalButton.setVisibility(View.VISIBLE);
                 signUpButton.setVisibility(View.VISIBLE);
                 phoneNoEnteredByTheUser.setVisibility(View.INVISIBLE);
                 verifyButton.setVisibility(View.INVISIBLE);
@@ -94,6 +101,13 @@ public class SignupPatientActivity extends AppCompatActivity {
                 mResendCode = forceResendingToken;
                 Toast.makeText(SignupPatientActivity.this, "Verification Code Sent!" ,Toast.LENGTH_SHORT).show();
 
+                editText_patName.setEnabled(false);
+                editText_age.setEnabled(false);
+                editText_husName.setEnabled(false);
+                editText_address.setEnabled(false);
+                editText_opd.setEnabled(false);
+                editText_phn.setEnabled(false);
+                chooseHospitalButton.setVisibility(View.INVISIBLE);
                 signUpButton.setVisibility(View.INVISIBLE);
                 phoneNoEnteredByTheUser.setVisibility(View.VISIBLE);
                 verifyButton.setVisibility(View.VISIBLE);
@@ -227,6 +241,7 @@ public class SignupPatientActivity extends AppCompatActivity {
         phoneNoEnteredByTheUser = findViewById(R.id.verification_code_entered_by_user);
         loadingBar = new ProgressDialog(this);
         signUpButton = findViewById(R.id.signUp);
+        chooseHospitalButton = findViewById(R.id.chooseHospitalButton);
     }
 
     private void signInUserByCredentials(PhoneAuthCredential credential) {

@@ -88,7 +88,7 @@ public class TreatmentActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(TreatmentActivity.this, "Details filled Successfully...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TreatmentActivity.this, "Treatment details filed successfully...", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }
@@ -128,7 +128,7 @@ public class TreatmentActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         editText_treatment.setText("");
-                                        Toast.makeText(TreatmentActivity.this, "Details Deleted", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(TreatmentActivity.this, "Treatment details deleted", Toast.LENGTH_SHORT).show();
                                     }
                                 });
 

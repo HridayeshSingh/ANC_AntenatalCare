@@ -88,7 +88,7 @@ public class ComplaintsActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(ComplaintsActivity.this, "Complaint Filed Successfully...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ComplaintsActivity.this, "Complaint filed successfully...", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }
@@ -128,7 +128,7 @@ public class ComplaintsActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         editText_complaint.setText("");
-                                        Toast.makeText(ComplaintsActivity.this, "Complaint Deleted", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(ComplaintsActivity.this, "Complaint deleted", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     }

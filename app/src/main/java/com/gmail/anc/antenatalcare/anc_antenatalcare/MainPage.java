@@ -129,6 +129,9 @@ public class MainPage extends AppCompatActivity {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_bar, menu);
 
+        if(mode.equals("doctor"))
+            menu.removeItem(R.id.feedback);
+
         return super.onCreateOptionsMenu(menu);
     }
 

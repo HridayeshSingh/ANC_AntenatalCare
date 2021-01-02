@@ -179,7 +179,7 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
         info = diagnosisEditText.getText().toString();
         FirebaseDatabase.getInstance().getReference().child("pregnancy details").child(currentUserId).child(date).child("Diagnosis").setValue(info);
 
-        Toast.makeText(getApplicationContext(), "All details have been submitted !! \nसभी जानकारियां जमा हो चुकी हैं।", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Pregnancy details have been submitted !! \nगर्भावस्था की जानकारियां जमा हो चुकी हैं।", Toast.LENGTH_LONG).show();
         finish();
     }
 

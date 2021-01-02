@@ -82,8 +82,10 @@ public class LoginPatientActivity extends AppCompatActivity {
                 loadingBar.dismiss();
                 Toast.makeText(LoginPatientActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
-                verification_Code_entered_by_user.setVisibility(View.INVISIBLE);
+                editText_phn.setEnabled(true);
+                editText_opd.setEnabled(true);
                 login.setVisibility(View.VISIBLE);
+                verification_Code_entered_by_user.setVisibility(View.INVISIBLE);
                 verify_btn.setVisibility(View.INVISIBLE);
             }
 
@@ -97,6 +99,8 @@ public class LoginPatientActivity extends AppCompatActivity {
                 mResendCode = forceResendingToken;
                 Toast.makeText(LoginPatientActivity.this, "Verification Code Sent!", Toast.LENGTH_SHORT).show();
 
+                editText_phn.setEnabled(false);
+                editText_opd.setEnabled(false);
                 login.setVisibility(View.INVISIBLE);
                 verification_Code_entered_by_user.setVisibility(View.VISIBLE);
                 verify_btn.setVisibility(View.VISIBLE);

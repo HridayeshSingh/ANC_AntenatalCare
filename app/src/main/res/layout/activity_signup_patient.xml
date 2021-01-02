@@ -163,7 +163,7 @@
                 android:inputType="textMultiLine" />
 
             <Button
-                android:id="@+id/chooseHospitalTextView"
+                android:id="@+id/chooseHospitalButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

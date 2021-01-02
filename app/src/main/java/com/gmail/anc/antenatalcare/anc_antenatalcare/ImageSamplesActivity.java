@@ -122,7 +122,7 @@ public class ImageSamplesActivity extends AppCompatActivity {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                imageSample1.setImageDrawable(getDrawable(R.drawable.logo));
+                                imageSample1.setImageResource(R.drawable.logo);
                                 rootRefImage1.child(currentUserID + ".jpg").delete();
                             }
                         })
@@ -136,20 +136,20 @@ public class ImageSamplesActivity extends AppCompatActivity {
         imageSample2.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                new AlertDialog.Builder(ImageSamplesActivity.this)
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("Are you sure?")
-                        .setMessage("Do you want to delete this image? \n" +
-                                "क्या आप इस छवि को हटाना चाहते हैं?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                imageSample2.setImageDrawable(getDrawable(R.drawable.logo));
-                                rootRefImage2.child(currentUserID + ".jpg").delete();
-                            }
-                        })
-                        .setNegativeButton("No", null)
-                        .show();
+                    new AlertDialog.Builder(ImageSamplesActivity.this)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setTitle("Are you sure?")
+                            .setMessage("Do you want to delete this image? \n" +
+                                    "क्या आप इस छवि को हटाना चाहते हैं?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    imageSample2.setImageResource(R.drawable.logo);
+                                    rootRefImage2.child(currentUserID + ".jpg").delete();
+                                }
+                            })
+                            .setNegativeButton("No", null)
+                            .show();
 
                 return true;
             }
@@ -158,20 +158,20 @@ public class ImageSamplesActivity extends AppCompatActivity {
         imageSample3.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                new AlertDialog.Builder(ImageSamplesActivity.this)
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .setTitle("Are you sure?")
-                        .setMessage("Do you want to delete this image? \n" +
-                                "क्या आप इस छवि को हटाना चाहते हैं?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                imageSample3.setImageDrawable(getDrawable(R.drawable.logo));
-                                rootRefImage3.child(currentUserID + ".jpg").delete();
-                            }
-                        })
-                        .setNegativeButton("No", null)
-                        .show();
+                    new AlertDialog.Builder(ImageSamplesActivity.this)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setTitle("Are you sure?")
+                            .setMessage("Do you want to delete this image? \n" +
+                                    "क्या आप इस छवि को हटाना चाहते हैं?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    imageSample3.setImageResource(R.drawable.logo);
+                                    rootRefImage3.child(currentUserID + ".jpg").delete();
+                                }
+                            })
+                            .setNegativeButton("No", null)
+                            .show();
 
                 return true;
             }
@@ -188,7 +188,7 @@ public class ImageSamplesActivity extends AppCompatActivity {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                imageSample4.setImageDrawable(getDrawable(R.drawable.logo));
+                                imageSample4.setImageResource(R.drawable.logo);
                                 rootRefImage4.child(currentUserID + ".jpg").delete();
                             }
                         })
