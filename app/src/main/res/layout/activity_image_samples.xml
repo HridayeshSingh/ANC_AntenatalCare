@@ -41,7 +41,7 @@
                     android:baselineAligned="false">
 
                     <androidx.gridlayout.widget.GridLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         app:columnCount="2"

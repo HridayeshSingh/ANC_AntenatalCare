@@ -2,14 +2,21 @@ package com.gmail.anc.antenatalcare.anc_antenatalcare;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -25,6 +32,7 @@ public class ImageSamplesActivity extends AppCompatActivity {
 
     private ImageView imageSample1, imageSample2, imageSample3, imageSample4;
 
+    private boolean isPermissionGranted = false;
     private String mode, selectedPatient;
     private String currentUserID;
     private FirebaseAuth firebaseAuth;
@@ -64,6 +72,13 @@ public class ImageSamplesActivity extends AppCompatActivity {
         imageSample3 = findViewById(R.id.imageSample3);
         imageSample4 = findViewById(R.id.imageSample4);
 
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+            isPermissionGranted = false;
+            requestPermission();
+        } else {
+            isPermissionGranted = true;
+        }
+
         StorageReference filePath = rootRefImage1.child(currentUserID + ".jpg");
         filePath.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -95,6 +110,94 @@ public class ImageSamplesActivity extends AppCompatActivity {
                 Picasso.get().load(uri).into(imageSample4);
             }
         });
+
+        imageSample1.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                new AlertDialog.Builder(ImageSamplesActivity.this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Are you sure?")
+                        .setMessage("Do you want to delete this image? \n" +
+                                "क्या आप इस छवि को हटाना चाहते हैं?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                imageSample1.setImageDrawable(getDrawable(R.drawable.logo));
+                                rootRefImage1.child(currentUserID + ".jpg").delete();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+
+                return true;
+            }
+        });
+
+        imageSample2.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                new AlertDialog.Builder(ImageSamplesActivity.this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Are you sure?")
+                        .setMessage("Do you want to delete this image? \n" +
+                                "क्या आप इस छवि को हटाना चाहते हैं?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                imageSample2.setImageDrawable(getDrawable(R.drawable.logo));
+                                rootRefImage2.child(currentUserID + ".jpg").delete();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+
+                return true;
+            }
+        });
+
+        imageSample3.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                new AlertDialog.Builder(ImageSamplesActivity.this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Are you sure?")
+                        .setMessage("Do you want to delete this image? \n" +
+                                "क्या आप इस छवि को हटाना चाहते हैं?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                imageSample3.setImageDrawable(getDrawable(R.drawable.logo));
+                                rootRefImage3.child(currentUserID + ".jpg").delete();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+
+                return true;
+            }
+        });
+
+        imageSample4.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                new AlertDialog.Builder(ImageSamplesActivity.this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Are you sure?")
+                        .setMessage("Do you want to delete this image? \n" +
+                                "क्या आप इस छवि को हटाना चाहते हैं?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                imageSample4.setImageDrawable(getDrawable(R.drawable.logo));
+                                rootRefImage4.child(currentUserID + ".jpg").delete();
+                            }
+                        })
+                        .setNegativeButton("No", null)
+                        .show();
+
+                return true;
+            }
+        });
     }
 
     @Override
@@ -116,40 +219,52 @@ public class ImageSamplesActivity extends AppCompatActivity {
                 return true;
 
             case R.id.image_sample_1:
-                Toast.makeText(this, "Add image",Toast.LENGTH_SHORT).show();
+                if(!isPermissionGranted) {
+                    requestPermission();
+                } else {
+                    Toast.makeText(this, "Add image", Toast.LENGTH_SHORT).show();
 
-                Intent galleryIntent = new Intent();
-                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-                galleryIntent.setType("image/*");
-                startActivityForResult(galleryIntent, galleryPick1);
-
+                    Intent galleryIntent = new Intent();
+                    galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
+                    galleryIntent.setType("image/*");
+                    startActivityForResult(galleryIntent, galleryPick1);
+                }
                 return true;
             case R.id.image_sample_2:
-                Toast.makeText(this, "Add image",Toast.LENGTH_SHORT).show();
+                if(!isPermissionGranted) {
+                    requestPermission();
+                } else {
+                    Toast.makeText(this, "Add image", Toast.LENGTH_SHORT).show();
 
-                Intent galleryIntent2 = new Intent();
-                galleryIntent2.setAction(Intent.ACTION_GET_CONTENT);
-                galleryIntent2.setType("image/*");
-                startActivityForResult(galleryIntent2, galleryPick2);
-
+                    Intent galleryIntent2 = new Intent();
+                    galleryIntent2.setAction(Intent.ACTION_GET_CONTENT);
+                    galleryIntent2.setType("image/*");
+                    startActivityForResult(galleryIntent2, galleryPick2);
+                }
                 return true;
             case R.id.image_sample_3:
-                Toast.makeText(this, "Add image",Toast.LENGTH_SHORT).show();
+                if(!isPermissionGranted) {
+                    requestPermission();
+                } else {
+                    Toast.makeText(this, "Add image", Toast.LENGTH_SHORT).show();
 
-                Intent galleryIntent3 = new Intent();
-                galleryIntent3.setAction(Intent.ACTION_GET_CONTENT);
-                galleryIntent3.setType("image/*");
-                startActivityForResult(galleryIntent3, galleryPick3);
-
+                    Intent galleryIntent3 = new Intent();
+                    galleryIntent3.setAction(Intent.ACTION_GET_CONTENT);
+                    galleryIntent3.setType("image/*");
+                    startActivityForResult(galleryIntent3, galleryPick3);
+                }
                 return true;
             case R.id.image_sample_4:
-                Toast.makeText(this, "Add image",Toast.LENGTH_SHORT).show();
+                if(!isPermissionGranted) {
+                    requestPermission();
+                } else {
+                    Toast.makeText(this, "Add image", Toast.LENGTH_SHORT).show();
 
-                Intent galleryIntent4 = new Intent();
-                galleryIntent4.setAction(Intent.ACTION_GET_CONTENT);
-                galleryIntent4.setType("image/*");
-                startActivityForResult(galleryIntent4, galleryPick4);
-
+                    Intent galleryIntent4 = new Intent();
+                    galleryIntent4.setAction(Intent.ACTION_GET_CONTENT);
+                    galleryIntent4.setType("image/*");
+                    startActivityForResult(galleryIntent4, galleryPick4);
+                }
                 return true;
             default:
                 return false;
@@ -165,11 +280,11 @@ public class ImageSamplesActivity extends AppCompatActivity {
 
             Uri imageUri = data.getData();
 
-            final StorageReference fileRef = rootRefImage1.child(currentUserID + ".jpg");
-            fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            final StorageReference fileRef1 = rootRefImage1.child(currentUserID + ".jpg");
+            fileRef1.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    fileRef1.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
                             Picasso.get().load(uri).into(imageSample1);
@@ -251,6 +366,25 @@ public class ImageSamplesActivity extends AppCompatActivity {
                 }
             });
 
+        }
+    }
+
+    private void requestPermission() {
+        ActivityCompat.requestPermissions(ImageSamplesActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 5);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if(requestCode == 5) {
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                    isPermissionGranted = true;
+                }
+            } else {
+                isPermissionGranted = false;
+            }
         }
     }
 

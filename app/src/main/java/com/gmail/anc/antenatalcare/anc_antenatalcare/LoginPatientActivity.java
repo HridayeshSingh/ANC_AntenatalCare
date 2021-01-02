@@ -185,6 +185,7 @@ public class LoginPatientActivity extends AppCompatActivity {
     private void sendUserToSignupActivity() {
         Intent i = new Intent(getApplicationContext(), SignupPatientActivity.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Toast.makeText(this, "You are not registered!! \nआप पंजीकृत नहीं हैं!", Toast.LENGTH_SHORT).show();
         startActivity(i);
         finish();
     }
