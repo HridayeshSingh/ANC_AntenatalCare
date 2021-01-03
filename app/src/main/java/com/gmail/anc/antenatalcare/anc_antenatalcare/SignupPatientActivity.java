@@ -77,7 +77,7 @@ public class SignupPatientActivity extends AppCompatActivity {
             {
 
                 loadingBar.dismiss();
-                Toast.makeText(SignupPatientActivity.this, e.getMessage() ,Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupPatientActivity.this, e.getMessage() ,Toast.LENGTH_LONG).show();
 
                 editText_patName.setEnabled(true);
                 editText_age.setEnabled(true);

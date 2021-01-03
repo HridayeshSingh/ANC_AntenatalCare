@@ -228,8 +228,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="@string/date_format"
-                    android:inputType="date"
+                    android:inputType="number|phone"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:autofillHints="" />

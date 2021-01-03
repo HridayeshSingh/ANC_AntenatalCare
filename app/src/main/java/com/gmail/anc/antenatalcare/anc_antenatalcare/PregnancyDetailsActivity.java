@@ -100,50 +100,58 @@ public class PregnancyDetailsActivity extends AppCompatActivity {
             }
         });
 
-        //display dates in AlertDialog
-        AlertDialog.Builder builder = new AlertDialog.Builder(PregnancyDetailsActivity.this);
-        builder.setTitle("Choose A Date");
+        if(datesList.isEmpty()) {
+            new AlertDialog.Builder(PregnancyDetailsActivity.this)
+                    .setMessage("You have no previous record! \n" +
+                            "आपका कोई पिछला रिकॉर्ड नहीं है!")
+                    .setPositiveButton("OK", null)
+                    .show();
+        } else {
+            //display dates in AlertDialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(PregnancyDetailsActivity.this);
+            builder.setTitle("Choose A Date");
 
-        if(!isPreviousButtonSelectedBefore)
-            reverseArrayLists();
-        isPreviousButtonSelectedBefore = true;
-        String[] dates = new String[datesList.size()];
-        dates = datesList.toArray(dates);
-        builder.setItems(dates, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                reset();
-                String info = "";
+            if (!isPreviousButtonSelectedBefore)
+                reverseArrayLists();
+            isPreviousButtonSelectedBefore = true;
+            String[] dates = new String[datesList.size()];
+            dates = datesList.toArray(dates);
+            builder.setItems(dates, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    reset();
+                    String info = "";
 
-                info = datesList.get(i);
-                dateEditText.setText(info);
+                    info = datesList.get(i);
+                    dateEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("Gravida").getValue().toString();
-                gravidaEditText.setText(info);
+                    info = datesSnapshots.get(i).child("Gravida").getValue().toString();
+                    gravidaEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("Parity").getValue().toString();
-                parityEditText.setText(info);
+                    info = datesSnapshots.get(i).child("Parity").getValue().toString();
+                    parityEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("Live Issues").getValue().toString();
-                liveIssuesEditText.setText(info);
+                    info = datesSnapshots.get(i).child("Live Issues").getValue().toString();
+                    liveIssuesEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("Abortion").getValue().toString();
-                abortionEditText.setText(info);
+                    info = datesSnapshots.get(i).child("Abortion").getValue().toString();
+                    abortionEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("LMP").getValue().toString();
-                lmpEditText.setText(info);
+                    info = datesSnapshots.get(i).child("LMP").getValue().toString();
+                    lmpEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("POG").getValue().toString();
-                pogEditText.setText(info);
+                    info = datesSnapshots.get(i).child("POG").getValue().toString();
+                    pogEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("EDD").getValue().toString();
-                eddEditText.setText(info);
+                    info = datesSnapshots.get(i).child("EDD").getValue().toString();
+                    eddEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("Diagnosis").getValue().toString();
-                diagnosisEditText.setText(info);
-            }
-        });
-        builder.create().show();
+                    info = datesSnapshots.get(i).child("Diagnosis").getValue().toString();
+                    diagnosisEditText.setText(info);
+                }
+            });
+            builder.create().show();
+        }
     }
 
     public void submitDetails(View view){

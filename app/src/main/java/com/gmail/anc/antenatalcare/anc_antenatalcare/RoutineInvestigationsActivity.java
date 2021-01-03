@@ -99,56 +99,64 @@ public class RoutineInvestigationsActivity extends AppCompatActivity {
             }
         });
 
-        //display investigation dates in AlertDialog
-        AlertDialog.Builder builder = new AlertDialog.Builder(RoutineInvestigationsActivity.this);
-        builder.setTitle("Choose A Date");
+        if(datesList.isEmpty()) {
+            new AlertDialog.Builder(RoutineInvestigationsActivity.this)
+                    .setMessage("You have no previous record! \n" +
+                            "आपका कोई पिछला रिकॉर्ड नहीं है!")
+                    .setPositiveButton("OK", null)
+                    .show();
+        } else {
+            //display investigation dates in AlertDialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(RoutineInvestigationsActivity.this);
+            builder.setTitle("Choose A Date");
 
-        if(!isPreviousButtonSelectedBefore)
-            reverseArrayLists();
-        isPreviousButtonSelectedBefore = true;
-        String[] dates = new String[datesList.size()];
-        dates = datesList.toArray(dates);
-        builder.setItems(dates, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                reset();
-                String info = "";
+            if (!isPreviousButtonSelectedBefore)
+                reverseArrayLists();
+            isPreviousButtonSelectedBefore = true;
+            String[] dates = new String[datesList.size()];
+            dates = datesList.toArray(dates);
+            builder.setItems(dates, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    reset();
+                    String info = "";
 
-                info = datesList.get(i);
-                dateEditText.setText(info);
+                    info = datesList.get(i);
+                    dateEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("Blood Group").getValue().toString();
-                bloodGroupEditText.setText(info);
+                    info = datesSnapshots.get(i).child("Blood Group").getValue().toString();
+                    bloodGroupEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("Hemoglobin").getValue().toString();
-                hemoglobinEditText.setText(info);
+                    info = datesSnapshots.get(i).child("Hemoglobin").getValue().toString();
+                    hemoglobinEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("Thalassemia Screen").getValue().toString();
-                thalassemiaEditText.setText(info);
+                    info = datesSnapshots.get(i).child("Thalassemia Screen").getValue().toString();
+                    thalassemiaEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("VDRL").getValue().toString();
-                vdrlEditText.setText(info);
+                    info = datesSnapshots.get(i).child("VDRL").getValue().toString();
+                    vdrlEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("OGTT").getValue().toString();
-                ogttEditText.setText(info);
+                    info = datesSnapshots.get(i).child("OGTT").getValue().toString();
+                    ogttEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("HIV 1&2").getValue().toString();
-                hivEditText.setText(info);
+                    info = datesSnapshots.get(i).child("HIV 1&2").getValue().toString();
+                    hivEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("HbsAg").getValue().toString();
-                hbsAgEditText.setText(info);
+                    info = datesSnapshots.get(i).child("HbsAg").getValue().toString();
+                    hbsAgEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("Urine R-M").getValue().toString();
-                urineRMEditText.setText(info);
+                    info = datesSnapshots.get(i).child("Urine R-M").getValue().toString();
+                    urineRMEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("Serum TSH").getValue().toString();
-                serumEditText.setText(info);
+                    info = datesSnapshots.get(i).child("Serum TSH").getValue().toString();
+                    serumEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("Any Other").getValue().toString();
-                otherEditText.setText(info);
-            }
-        });
-        builder.create().show();
+                    info = datesSnapshots.get(i).child("Any Other").getValue().toString();
+                    otherEditText.setText(info);
+                }
+            });
+            builder.create().show();
+        }
     }
 
     public void submitInvestigationDetails(View view){

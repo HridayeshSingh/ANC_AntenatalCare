@@ -95,47 +95,55 @@ public class UltrasoundActivity extends AppCompatActivity {
             }
         });
 
-        //display investigation dates in AlertDialog
-        AlertDialog.Builder builder = new AlertDialog.Builder(UltrasoundActivity.this);
-        builder.setTitle("Choose A Date");
+        if(datesList.isEmpty()) {
+            new AlertDialog.Builder(UltrasoundActivity.this)
+                    .setMessage("You have no previous record! \n" +
+                            "आपका कोई पिछला रिकॉर्ड नहीं है!")
+                    .setPositiveButton("OK", null)
+                    .show();
+        } else {
+            //display investigation dates in AlertDialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(UltrasoundActivity.this);
+            builder.setTitle("Choose A Date");
 
-        if(!isPreviousButtonSelectedBefore)
-            reverseArrayLists();
-        isPreviousButtonSelectedBefore = true;
-        String[] dates = new String[datesList.size()];
-        dates = datesList.toArray(dates);
-        builder.setItems(dates, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                reset();
-                String info = "";
+            if (!isPreviousButtonSelectedBefore)
+                reverseArrayLists();
+            isPreviousButtonSelectedBefore = true;
+            String[] dates = new String[datesList.size()];
+            dates = datesList.toArray(dates);
+            builder.setItems(dates, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    reset();
+                    String info = "";
 
-                info = datesList.get(i);
-                dateEditText.setText(info);
+                    info = datesList.get(i);
+                    dateEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("GA").getValue().toString();
-                gaEditText.setText(info);
+                    info = datesSnapshots.get(i).child("GA").getValue().toString();
+                    gaEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("CRL").getValue().toString();
-                crlEditText.setText(info);
+                    info = datesSnapshots.get(i).child("CRL").getValue().toString();
+                    crlEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("BPD").getValue().toString();
-                bpdEditText.setText(info);
+                    info = datesSnapshots.get(i).child("BPD").getValue().toString();
+                    bpdEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("HC").getValue().toString();
-                hcEditText.setText(info);
+                    info = datesSnapshots.get(i).child("HC").getValue().toString();
+                    hcEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("AC").getValue().toString();
-                acEditText.setText(info);
+                    info = datesSnapshots.get(i).child("AC").getValue().toString();
+                    acEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("FL").getValue().toString();
-                flEditText.setText(info);
+                    info = datesSnapshots.get(i).child("FL").getValue().toString();
+                    flEditText.setText(info);
 
-                info = datesSnapshots.get(i).child("EFW").getValue().toString();
-                efwEditText.setText(info);
-            }
-        });
-        builder.create().show();
+                    info = datesSnapshots.get(i).child("EFW").getValue().toString();
+                    efwEditText.setText(info);
+                }
+            });
+            builder.create().show();
+        }
     }
 
     public void submitObstetric(View view){

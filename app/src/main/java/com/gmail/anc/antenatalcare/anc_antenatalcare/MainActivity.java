@@ -7,10 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private Intent intent;
     private ArrayList<String> doctorsList = new ArrayList<>();
+
+    private boolean hasTimeElapsed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,20 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                if (currentUser != null) {
-                    if (doctorsList.contains(currentUser.getUid())) {
-                        intent = new Intent(getApplicationContext(), SelectPatientActivity.class);
-                    } else {
-                        intent = new Intent(getApplicationContext(), MainPage.class);
-                        intent.putExtra("mode", "patient");
-                    }
-                } else {
-                    intent = new Intent(getApplicationContext(), SignUpInDecisionActivity.class);
-                }
-
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
+                TextView tapAnywhere = findViewById(R.id.tapAnywhere);
+                tapAnywhere.animate().alpha(1).setDuration(3000);
+                hasTimeElapsed = true;
             }
         };
         countDownTimer.start();
@@ -84,5 +75,24 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
+    }
+
+    public void screenTapped(View view) {
+        if(hasTimeElapsed) {
+            if (currentUser != null) {
+                if (doctorsList.contains(currentUser.getUid())) {
+                    intent = new Intent(getApplicationContext(), SelectPatientActivity.class);
+                } else {
+                    intent = new Intent(getApplicationContext(), MainPage.class);
+                    intent.putExtra("mode", "patient");
+                }
+            } else {
+                intent = new Intent(getApplicationContext(), SignUpInDecisionActivity.class);
+            }
+
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
     }
 }

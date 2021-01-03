@@ -80,7 +80,7 @@ public class LoginPatientActivity extends AppCompatActivity {
             public void onVerificationFailed(@NonNull FirebaseException e) {
 
                 loadingBar.dismiss();
-                Toast.makeText(LoginPatientActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginPatientActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
 
                 editText_phn.setEnabled(true);
                 editText_opd.setEnabled(true);
