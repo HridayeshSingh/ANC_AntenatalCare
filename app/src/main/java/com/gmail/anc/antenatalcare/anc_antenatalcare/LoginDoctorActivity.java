@@ -3,8 +3,10 @@ package com.gmail.anc.antenatalcare.anc_antenatalcare;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -38,8 +40,21 @@ public class LoginDoctorActivity extends AppCompatActivity {
         final String email = emailEditText.getText().toString();
         final String password = passwordEditText.getText().toString();
 
-        if (email.isEmpty()){
+        if (TextUtils.isEmpty(email)) {
             emailEditText.requestFocus();
+            emailEditText.setError("Please enter Email Address");
+        }
+        if (TextUtils.isEmpty(password)) {
+            passwordEditText.requestFocus();
+            passwordEditText.setError("Please enter Password");
+        }
+        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+            new AlertDialog.Builder(LoginDoctorActivity.this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Fields not filled!")
+                    .setMessage("Please fill all the mandatory details to signUp...")
+                    .setNeutralButton("Ok", null)
+                    .show();
         }
         else{
             auth.signInWithEmailAndPassword(email, password)

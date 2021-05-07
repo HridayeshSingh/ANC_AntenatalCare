@@ -4,20 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -55,17 +54,64 @@ public class SignupDoctorActivity extends AppCompatActivity {
     }
 
     public void signUpDoctor(View view){
+        String docName = doctorNameEditText.getText().toString();
         String email = emailEditText.getText().toString();
         String password = smcEditText.getText().toString();
         final String hospitalKey = hospitalNameEditText.getText().toString().toUpperCase().concat(" " + postalCodeEditText.getText().toString());
+        String area = areaEditText.getText().toString();
+        String city = cityEditText.getText().toString();
+        String state = stateEditText.getText().toString();
+        String postalCode = postalCodeEditText.getText().toString();
 
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(SignupDoctorActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+        if (TextUtils.isEmpty(docName)) {
+            doctorNameEditText.requestFocus();
+            doctorNameEditText.setError("Please Enter Doctor's Name");
+        }
+        if (TextUtils.isEmpty(email)) {
+            emailEditText.requestFocus();
+            emailEditText.setError("Please Enter Email Address");
+        }
+        if (TextUtils.isEmpty(password)) {
+            smcEditText.requestFocus();
+            smcEditText.setError("Please Enter SMC no. as your Password");
+        }
+        if (TextUtils.isEmpty(hospitalNameEditText.getText().toString())) {
+            hospitalNameEditText.requestFocus();
+            hospitalNameEditText.setError("Please Enter hospital Name");
+        }
+        if (TextUtils.isEmpty(area)) {
+            areaEditText.requestFocus();
+            areaEditText.setError("Please Enter hospital area");
+        }
+        if (TextUtils.isEmpty(city)) {
+            cityEditText.requestFocus();
+            cityEditText.setError("Please Enter hospital city");
+        }
+        if (TextUtils.isEmpty(state)) {
+            stateEditText.requestFocus();
+            stateEditText.setError("Please Enter hospital state");
+        }
+        if (TextUtils.isEmpty(postalCode)) {
+            postalCodeEditText.requestFocus();
+            postalCodeEditText.setError("Please Enter hospital postal code");
+        }
+        if (TextUtils.isEmpty(docName) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password) || TextUtils.isEmpty(hospitalNameEditText.getText().toString()) ||
+                TextUtils.isEmpty(area) || TextUtils.isEmpty(city) || TextUtils.isEmpty(state) || TextUtils.isEmpty(postalCode)) {
+            new AlertDialog.Builder(SignupDoctorActivity.this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Fields not filled!")
+                    .setMessage("Please fill all the mandatory details to signUp...")
+                    .setNeutralButton("Ok", null)
+                    .show();
+        }
+        else {
+            auth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(SignupDoctorActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
 
-                            // Send Verification Link
+                                // Send Verification Link
                             /*FirebaseUser firebaseUser = auth.getCurrentUser();
                             firebaseUser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -79,27 +125,28 @@ public class SignupDoctorActivity extends AppCompatActivity {
                                 }
                             }); */
 
-                            boolean isHospitalNew = true;
+                                boolean isHospitalNew = true;
 
-                            for(int i = 0; i < hospitals.size(); i++) {
-                                String name = hospitals.get(i);
-                                if(name.equals(hospitalKey)) {
-                                    isHospitalNew = false;
-                                    submitDoctorDetails(hospitalKey);
-                                    break;
+                                for (int i = 0; i < hospitals.size(); i++) {
+                                    String name = hospitals.get(i);
+                                    if (name.equals(hospitalKey)) {
+                                        isHospitalNew = false;
+                                        submitDoctorDetails(hospitalKey);
+                                        break;
+                                    }
                                 }
+                                if (isHospitalNew) {
+                                    submitHospitalDetails(hospitalKey);
+                                    submitDoctorDetails(hospitalKey);
+                                }
+                                Toast.makeText(getApplicationContext(), "Doctor Registered Successfully", Toast.LENGTH_SHORT).show();
+                                sendUserToSelectPatientActivity();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Sign Up Failed!", Toast.LENGTH_SHORT).show();
                             }
-                            if(isHospitalNew) {
-                                submitHospitalDetails(hospitalKey);
-                                submitDoctorDetails(hospitalKey);
-                            }
-                            Toast.makeText(getApplicationContext(), "Doctor Registered Successfully", Toast.LENGTH_SHORT).show();
-                            sendUserToSelectPatientActivity();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Sign Up Failed!", Toast.LENGTH_SHORT).show();
                         }
-                    }
-                });
+                    });
+        }
     }
 
     @Override

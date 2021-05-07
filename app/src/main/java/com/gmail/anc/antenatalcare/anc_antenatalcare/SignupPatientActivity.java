@@ -147,14 +147,22 @@ public class SignupPatientActivity extends AppCompatActivity {
         builder.setTitle("Choose A Hospital");
 
         String[] hospitalArray = new String[hospitals.size()];
-        hospitalArray = hospitals.toArray(hospitalArray);
-        builder.setItems(hospitalArray, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                editText_hosName.setText(hosDisplayNames.get(i));
-            }
-        });
-        builder.create().show();
+        if(hospitals.isEmpty()) {
+            new AlertDialog.Builder(SignupPatientActivity.this)
+                    .setMessage("No hospital registered! \n" +
+                            "कोई अस्पताल पंजीकृत नहीं!")
+                    .setPositiveButton("OK", null)
+                    .show();
+        }else {
+            hospitalArray = hospitals.toArray(hospitalArray);
+            builder.setItems(hospitalArray, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    editText_hosName.setText(hosDisplayNames.get(i));
+                }
+            });
+            builder.create().show();
+        }
     }
 
     public void signUpPatient(View view){
@@ -166,33 +174,49 @@ public class SignupPatientActivity extends AppCompatActivity {
         final String opd = editText_opd.getText().toString();
         final String hosName = editText_hosName.getText().toString();
 
-        loadingBar.setTitle("Phone Verification");
-        loadingBar.setMessage("please wait, we are authenticating your phone...");
-        loadingBar.setCanceledOnTouchOutside(false);
-        loadingBar.show();
-
         if (TextUtils.isEmpty(patName)) {
-            Toast.makeText(SignupPatientActivity.this, "Please Enter Patient's Name", Toast.LENGTH_SHORT).show();
+            editText_patName.requestFocus();
+            editText_patName.setError("Please Enter Patient's Name");
         }
         if (TextUtils.isEmpty(age)) {
-            Toast.makeText(SignupPatientActivity.this, "Please Enter Patient's Age", Toast.LENGTH_SHORT).show();
+            editText_age.requestFocus();
+            editText_age.setError("Please Enter Patient's Age");
         }
         if (TextUtils.isEmpty(husName)) {
-            Toast.makeText(SignupPatientActivity.this, "Please Enter Husband's Name", Toast.LENGTH_SHORT).show();
+            editText_husName.requestFocus();
+            editText_husName.setError("Please Enter Husband's Name");
         }
         if (TextUtils.isEmpty(address)) {
-            Toast.makeText(SignupPatientActivity.this, "Please Enter Patient's Address", Toast.LENGTH_SHORT).show();
+            editText_address.requestFocus();
+            editText_address.setError("Please Enter Patient's Address");
         }
         if (TextUtils.isEmpty(phn)) {
-            Toast.makeText(SignupPatientActivity.this, "Please Enter Patient's Phone No.", Toast.LENGTH_SHORT).show();
+            editText_phn.requestFocus();
+            editText_phn.setError("Please Enter Patient's Phone No.");
         }
         if (TextUtils.isEmpty(opd)) {
-            Toast.makeText(SignupPatientActivity.this, "Please Enter OPD No.", Toast.LENGTH_SHORT).show();
+            editText_opd.requestFocus();
+            editText_opd.setError("Please Enter OPD No.");
         }
         if (TextUtils.isEmpty(hosName)) {
-            Toast.makeText(SignupPatientActivity.this, "Please Enter Hospital Name", Toast.LENGTH_SHORT).show();
+            editText_hosName.requestFocus();
+            editText_hosName.setError("Please Enter Hospital Name");
+        }
+        if (TextUtils.isEmpty(patName) || TextUtils.isEmpty(age) || TextUtils.isEmpty(husName) ||
+                TextUtils.isEmpty(address) || TextUtils.isEmpty(phn) || TextUtils.isEmpty(opd) || TextUtils.isEmpty(hosName)){
+            new AlertDialog.Builder(SignupPatientActivity.this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Fields not filled!")
+                    .setMessage("Please fill all the mandatory details to signUp...")
+                    .setNeutralButton("Ok", null)
+                    .show();
         }
         else {
+
+            loadingBar.setTitle("Phone Verification");
+            loadingBar.setMessage("please wait, we are authenticating your phone...");
+            loadingBar.setCanceledOnTouchOutside(false);
+            loadingBar.show();
 
             PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     phn,        // Phone number to verify

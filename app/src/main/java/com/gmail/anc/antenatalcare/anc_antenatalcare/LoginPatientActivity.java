@@ -4,10 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 
 public class LoginPatientActivity extends AppCompatActivity {
 
-    private Button login, verify_btn;
+    private Button login;
     private EditText editText_phn, editText_opd, verification_Code_entered_by_user;
 
     private ArrayList<String> opdNumber = new ArrayList<>();
@@ -45,6 +46,8 @@ public class LoginPatientActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseUser currentUser;
     private DatabaseReference rootRef;
+
+    private Button verify_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +112,46 @@ public class LoginPatientActivity extends AppCompatActivity {
 
     }
 
-    public void verifyPatient(View view){
+    public void loginPat(View view){
+        final String phn = editText_phn.getText().toString();
+        final String opd = editText_opd.getText().toString();
+
+        if (TextUtils.isEmpty(phn)) {
+            editText_phn.requestFocus();
+            editText_phn.setError("Please enter phone no. with country code");
+        }
+        if (TextUtils.isEmpty(opd)) {
+            editText_opd.requestFocus();
+            editText_opd.setError("Please enter opd no.");
+        }
+        if (TextUtils.isEmpty(phn) || TextUtils.isEmpty(opd)) {
+            new AlertDialog.Builder(LoginPatientActivity.this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Fields not filled!")
+                    .setMessage("Please fill all the mandatory details to signUp...")
+                    .setNeutralButton("Ok", null)
+                    .show();
+        }
+        if (!opdNumber.contains(opd)) {
+            sendUserToSignupActivity();
+        }
+        else {
+            loadingBar.setTitle("Phone Verification");
+            loadingBar.setMessage("please wait, we are authenticating your phone...");
+            loadingBar.setCanceledOnTouchOutside(false);
+            loadingBar.show();
+
+            PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                    phn,        // Phone number to verify
+                    60,                 // Timeout duration
+                    TimeUnit.SECONDS,   // Unit of timeout
+                    LoginPatientActivity.this,               // Activity (for callback binding)
+                    mCallbacks);
+
+        }
+    }
+
+    public void verifyPat(View view){
         String code = verification_Code_entered_by_user.getText().toString();
 
         if (code.isEmpty() || code.length() < 6) {
@@ -128,54 +170,24 @@ public class LoginPatientActivity extends AppCompatActivity {
         }
     }
 
-    public void loginPatient(View view){
-        final String phn = editText_phn.getText().toString();
-        final String opd = editText_opd.getText().toString();
-
-        if (opdNumber.contains(opd)) {
-            loadingBar.setTitle("Phone Verification");
-            loadingBar.setMessage("please wait, we are authenticating your phone...");
-            loadingBar.setCanceledOnTouchOutside(false);
-            loadingBar.show();
-
-            PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                    phn,        // Phone number to verify
-                    60,                 // Timeout duration
-                    TimeUnit.SECONDS,   // Unit of timeout
-                    LoginPatientActivity.this,               // Activity (for callback binding)
-                    mCallbacks);
-        }
-        else {
-            sendUserToSignupActivity();
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == android.R.id.home)
-            this.finish();
-
-        return super.onOptionsItemSelected(item);
-    }
-
     private void signInUserByCredntials(PhoneAuthCredential credential) {
-            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-            firebaseAuth.signInWithCredential(credential)
-                    .addOnCompleteListener(LoginPatientActivity.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(LoginPatientActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
 
-                                loadingBar.dismiss();
+                            loadingBar.dismiss();
 
-                                sendUserToMainPageActivity();
+                            sendUserToMainPageActivity();
 
-                            }
-                            else {
-                                Toast.makeText(LoginPatientActivity.this, "Verification Failed!" ,Toast.LENGTH_SHORT).show();
-                            }
                         }
-                    });
+                        else {
+                            Toast.makeText(LoginPatientActivity.this, "Verification Failed!" ,Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     private void sendUserToMainPageActivity() {

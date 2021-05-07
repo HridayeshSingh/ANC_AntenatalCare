@@ -81,7 +81,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/input2"
-                android:onClick="loginPatient"
+                android:onClick="loginPat"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/login_here_n"
@@ -105,7 +105,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:background="#fece2f"
-                android:onClick="verifyPatient"
+                android:onClick="verifyPat"
                 android:text="@string/verify"
                 android:visibility="invisible" />
         </LinearLayout>
